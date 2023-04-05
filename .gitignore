@@ -3,6 +3,7 @@ wp
 debug.log
 ai1wm-backups
 plugins/
+mu-plugins/
 uploads/
 languages
 .DS_Store
