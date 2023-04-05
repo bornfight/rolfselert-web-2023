@@ -1,0 +1,25 @@
+/*-- 
+Image Grid
+----------------------------------------------*/
+.image_grid {
+  @extend %clearfix;
+}
+.media_wrap--grid {
+  margin-bottom: 16px;
+}
+@include breakpoint(tablet-portrait) {
+  .image_grid {
+    margin: 0 -8px;
+  }
+  .media_wrap--grid {
+    float: left;
+    width: 33.3333%;
+    padding: 0 8px;
+    
+    img {
+      width: 100%;
+    }
+  }
+}
+
+

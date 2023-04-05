@@ -1,0 +1,30 @@
+// Colors
+$color-default-white: #FFF;
+$color-blue: #0112ff;
+$color-gray: #efefef;
+$color-gray-light: #e4e4e4;
+$color-gray-text: #4A4A4A;
+
+// Breakpoints
+$breakpoints: (
+  "phone-portrait": 321px,
+  "phone-landscape": 481px,
+  "tablet-portrait": 601px,
+  "tablet-landscape": 769px,
+  "desktop": 961px,
+  "large-screen": 1321px,
+  "header-change": 1000px
+);
+
+$breakpoint-directions: (
+  "min": "min-width",
+  "max": "max-width"
+);
+
+$default-breakpoint: root;
+$current-breakpoint: $default-breakpoint;
+
+// Easing
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1);
+$easeInOutExpo: cubic-bezier(1, 0, 0, 1);
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1);

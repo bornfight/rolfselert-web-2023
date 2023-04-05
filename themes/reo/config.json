@@ -1,0 +1,19 @@
+{
+ 
+	"stage_url": "rolfselert.sullbuilds.com",
+	"dev_url": "reo.dev",
+	"stage_connection" : "ubuntu@sullbuilds.com",
+	"stage_db" : {
+		"name" : "reo",
+		"user" : "reo",
+		"pass" : "h0v3rcr4ft"
+	},
+	"stage_uploads" : "/var/www/rolfselert.sullbuilds.com/wp-content/uploads/",
+	"local_db" : {
+		"name" : "reo2",
+		"user" : "root",
+		"pass" : "h0v3rcr4ft"
+	},
+	"local_uploads" : "../../uploads/",
+	"local_mysql" : "/Applications/MAMP/Library/bin/mysql"
+}

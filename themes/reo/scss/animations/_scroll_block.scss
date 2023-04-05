@@ -1,0 +1,32 @@
+*[data-fade] {
+  opacity: 0;
+  @include transition(transform 2s cubic-bezier(0.19, 1, 0.22, 1),
+                      opacity 2s cubic-bezier(0.19, 1, 0.22, 1));
+  
+  &._visible {
+    opacity: 1;
+    @include transform(translate3d(0, 0, 0));
+  }
+}
+
+*[data-fade="in"] {
+  @include transform(translate3d(0, 0, 0));
+}
+
+*[data-fade="up"] {
+  @include transition-delay(0.5s);
+  @include transform(translate3d(0, 80px, 0));  
+}
+
+*[data-fade="left"],
+*[data-fade="right"] {
+  @include transition-delay(0.5s);
+}
+
+*[data-fade="left"] {
+  @include transform(translate3d(-80px, 0, 0));
+}
+
+*[data-fade="right"] {
+  @include transform(translate3d(80px, 0, 0));
+}

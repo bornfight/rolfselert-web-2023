@@ -1,0 +1,97 @@
+.js--videoPopoutPlayer{
+	display: none;
+	@include breakpoint('desktop'){
+		display: block;
+	}
+}
+
+.popoutPlay {
+	display: none;
+	width: 60px;
+	z-index: 3;
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	transition: .4s opacity;
+	cursor: pointer;
+	&:hover {
+		opacity: .7;
+	}
+	@include breakpoint('desktop') {
+		width: auto;
+	}
+
+}
+
+.introModule{
+	background: white;
+	width: 100%;
+	max-width: 850px;
+	margin: 0 auto;
+	border-bottom: 4px solid #efefef;
+	position: relative;
+	z-index: 2;
+	margin-bottom: 60px;
+	@include breakpoint('desktop'){
+		margin-top: -120px;
+		transition: 1.4s transform cubic-bezier(0.19, 1, 0.22, 1);
+		margin-bottom: 90px;
+		transform: translateY(120px);
+
+		&.is-overlay{
+			transform: translateY(0px);
+		}
+	}
+}
+
+.introModule_content {
+	padding: 55px 65px 50px;
+
+	h1 {
+		-webkit-font-smoothing: antialiased;
+		font-family: 'Gotham SSm A','Gotham SSm B',"Helvetica Neue",Arial,sans-serif;
+		font-weight: 500;
+		font-size: 18px;
+		font-weight: bold;
+		line-height: 1.67;
+		letter-spacing: 2px;
+		text-align: center;
+		
+		&:after {
+			content: '';
+			display: block;
+			width: 64px;
+			height: 4px;
+			background-color: #efefef;
+			margin: 35px auto;
+		}
+	}
+
+	.lead--large {
+		-webkit-font-smoothing: antialiased;
+		text-align: center;
+		font-weight: 300;
+		line-height: 1.4;
+		letter-spacing: 0.7px;
+		font-size: 20px;
+		color: #393939;
+		p{
+			font-family: "PMNCaeciliaW01-45Light", "Georgia", Times, serif;	
+		}
+
+		@include breakpoint('desktop'){
+			font-size: 30px;
+		}
+	}
+
+	.lead--small{
+		-webkit-font-smoothing: antialiased;
+		font-size: 16px;
+		line-height: 1.88;
+		letter-spacing: 0.7px;
+		text-align: center;
+		color: #4a4a4a;
+	}
+}

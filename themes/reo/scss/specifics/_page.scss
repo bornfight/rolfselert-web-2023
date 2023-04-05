@@ -1,0 +1,132 @@
+/*-- 
+Page
+----------------------------------------------*/
+.page {
+  position: relative;
+  height: 100%;
+  
+  overflow: hidden;
+  background: #FFF;
+  z-index: 4;
+}
+.page_module {
+  position: relative;
+  z-index: 5;
+}
+.pageHeader {
+  padding-top: 32px;
+  padding-bottom: 18px;
+  @include breakpoint(desktop) {
+    padding-top: 56px;
+    padding-bottom: 28px;
+  }
+}
+.pageHero {
+  @include aspectRatio(16, 9, '.pageHero_inner');
+  background: #000;
+  color: #FFF;
+  overflow: hidden;
+}
+
+.pageHero_more {
+  height: 30px;
+  width: 30px;
+  display: none;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAwIDEwMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGcgaWQ9IlhNTElEXzI1XyI+PHBhdGggaWQ9IlhNTElEXzI4XyIgZmlsbD0iI0ZGRkZGRiIgZD0iTTUwLjEsNzYuNGMtMi4zLDAtNC41LTAuOS02LjMtMi42TDguMiwzOC4xbDYuNC02LjRsMzUuNiwzNS42bDM1LjYtMzUuNmw2LjQsNi40TDU2LjQsNzMuOEM1NC43LDc1LjUsNTIuNCw3Ni40LDUwLjEsNzYuNHoiLz48L2c+PC9zdmc+) no-repeat 50% 50%;
+  background-size: 32px 32px;
+  
+  position: absolute;
+  bottom: 75px;
+  left: 50%;
+  margin-left: -15px;
+  z-index: 5;
+  
+  ._not_in_aspect & {
+    display: block;
+  }
+}
+
+// Image
+.pageHero_image {
+  position: absolute;
+  width: 100%;
+}
+
+// Video
+.pageHero_video {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.pageHero_video_inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+.pageHero_video--splash {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  margin: 0;
+  z-index: 1;
+  @include transition(opacity, .85s linear);
+  &._is_paused {
+    opacity: 0.5;
+  }
+}
+.pageHero_video--main {
+  z-index: 3;
+  height: 80%;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+
+.pageHero_video_mask {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, .5);
+  z-index: 2;
+}
+
+
+
+.page--home{
+  padding-top: 100px;
+  .pageHero{
+    display: none;
+  }
+  @include breakpoint(tablet-landscape) {
+    padding-top: 0;
+    .pageHero{
+      display: block;  
+    }
+  }
+}
+
+.page--project{
+  padding-top: 70px;
+  @include breakpoint(tablet-landscape) {
+    padding-top: 0;
+  }
+}
+
+.videoPopoutPlayer{
+  .playButton{
+    position: absolute;
+    z-index: 9;
+    width: 44px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s opacity;
+    cursor: pointer;
+    &:hover{
+      opacity: .6;
+    }
+  }
+}

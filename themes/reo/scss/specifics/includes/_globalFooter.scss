@@ -1,0 +1,30 @@
+/*-- 
+Global Footer
+----------------------------------------------*/
+.globalFooter {
+  background: #FFF;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  @include breakpoint(tablet-landscape) {
+    .page_module--rule {
+      padding-bottom: 70px;
+    }
+  }
+  .copyright {
+    font-family: 'Gotham SSm A','Gotham SSm B',"Helvetica Neue",Arial,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    letter-spacing: 0px;
+    float: left;
+  }
+  .socialLinks {
+    float: right;
+  }
+  .socialLinks_item {
+    display: block;
+    float: left;
+    margin-left: 20px;
+  }
+  
+}

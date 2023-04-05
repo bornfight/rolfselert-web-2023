@@ -1,0 +1,28 @@
+/*-- 
+Quote
+----------------------------------------------*/
+.quote_text {
+  display: block;
+  padding: 0 8.43949044585987%;
+  font-family:'PMNCaeciliaW01-46LightI';
+  @include breakpoint('desktop'){
+		max-width: 1100px;
+		margin: 0 auto;
+  		padding: 0;
+		font-size: 33px;
+		font-weight: 300;
+		font-style: italic;
+		line-height: 1.45;
+		letter-spacing: 0.3px;
+		text-align: center;
+		color: #393939;
+  }
+
+}
+
+.page_module--quote{
+	@include breakpoint('desktop'){
+
+		padding: 90px 0 !important;
+	}
+}

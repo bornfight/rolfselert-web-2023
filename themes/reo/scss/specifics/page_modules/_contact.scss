@@ -1,0 +1,132 @@
+/*-- 
+Contact
+----------------------------------------------*/
+.contact {
+  @extend %clearfix;
+
+  h2{
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Gotham SSm A','Gotham SSm B',"Helvetica Neue",Arial,sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.67;
+    letter-spacing: 2px;
+    text-align: center;
+    &:after {
+      content: '';
+      display: block;
+      width: 64px;
+      height: 4px;
+      background-color: #efefef;
+      margin: 35px auto;
+    }
+  }
+
+}
+
+
+#contact{
+    h2{
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Gotham SSm A','Gotham SSm B',"Helvetica Neue",Arial,sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.67;
+    letter-spacing: 2px;
+    text-align: center;
+    &:after {
+      content: '';
+      display: block;
+      width: 64px;
+      height: 4px;
+      background-color: #efefef;
+      margin: 35px auto;
+    }
+  }
+}
+
+.contacts_item {
+  
+  text-align: center;
+  
+  margin-bottom: 32px;
+
+
+    @include breakpoint(tablet-portrait) {
+    &:first-of-type {  
+      .iconContain{
+        padding-bottom: 8px;
+      } 
+      .contacts_icon {
+        width: 33px;
+        height: 33px;
+        
+      }
+    }
+
+    &:nth-child(2) {
+      .contacts_icon{
+        width: 30px;
+        height: 40px;
+      }
+    }
+    &:nth-child(3) {
+      .iconContain{
+        padding-bottom: 15px;
+      } 
+      .contacts_icon{
+        width: 32px;
+        height: 26px;
+      }
+    }
+  }
+
+
+  a { 
+    color: $color-gray-text;
+    text-decoration: none; 
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:hover {
+    a {
+      color: $color-blue;
+    }
+  }
+  @include breakpoint(tablet-portrait) {
+    margin: 0;
+    float: left;
+    width: 33.3333%;
+  }
+}
+.iconContain {
+    max-width: 50px;
+    margin: 0 auto;
+}
+
+.contacts_icon {
+  display: inline-block;
+  margin-bottom: 4px;
+
+
+
+}
+.contacts_item_text {
+  font-family: 'Gotham SSm A', 'Gotham SSm B', "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400; 
+  font-style: normal;
+  font-size: 14px;
+  line-height: 20px;
+  p {
+    margin: 0;
+    text-decoration: none;
+  }
+  a {
+    color: $color-gray-text;
+    text-decoration: none;
+  }
+}

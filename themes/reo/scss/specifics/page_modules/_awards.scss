@@ -1,0 +1,96 @@
+/*-- 
+Awards
+----------------------------------------------*/
+.awards {
+	@extend %clearfix;
+}
+
+.award {
+	h2 {
+		-webkit-font-smoothing: antialiased;
+		font-family: 'Gotham SSm A','Gotham SSm B',"Helvetica Neue",Arial,sans-serif;
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 1.67;
+		letter-spacing: 2px;
+		text-align: center;
+		&:after {
+			content: '';
+			display: block;
+			width: 64px;
+			height: 4px;
+			background-color: #efefef;
+			margin: 35px auto;
+		}
+	}
+
+	.awardImage {
+		width: 100%;
+		max-width: 300px;
+		margin-bottom: 40px;
+	}
+}
+
+.awards_item--text {
+	margin-bottom: 16px;
+	font-size: 16px;
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.57;
+	letter-spacing: 0.3px;
+	text-align: center;
+	color: #393939;
+	max-width: 849px;
+	margin: 0 auto;
+	padding: 0px 30px;
+	p{
+		font-family:'PMNCaeciliaW01-46LightI';
+	}
+	.attribution{
+		font-style: normal;
+		font-family:'PMNCaeciliaW01-55Roman', georgia, serif;
+	}
+}
+.awards_item--media {
+	margin: 0 -8px;
+}
+.media_wrap--award {
+	//float: left;
+	// padding: 0 8px;
+	// margin-bottom: 16px;
+	//width: 50%;
+	img {
+		margin: 0 auto;
+	}
+}
+@include breakpoint(tablet-landscape) {
+	.awards_item {
+		//float: left;
+	}
+	.awards_item--text {
+		//width: 32.48407643312102%;
+	}
+	.awards_item--media {
+		//width: 66.24203821656051%;
+		//text-align: center;
+		//margin: 0;
+	}
+	.media_wrap--award {
+		//display: inline-block;
+		float: none;
+		padding: 0 8px;
+		margin-bottom: 16px;
+		width: auto;
+	}
+	
+	.awards--centered {
+		h2 {
+			text-align: center;
+		}
+		.awards_item--media {
+			margin: 0 auto;
+			float: none;
+		}
+
+	}
+}

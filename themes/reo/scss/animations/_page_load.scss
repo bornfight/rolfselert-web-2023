@@ -1,0 +1,114 @@
+/*-- 
+Page Load
+----------------------------------------------*/
+
+.page, .globalFooter {
+  @include transition(opacity, 1s, cubic-bezier(0.95, 0.05, 0.795, 0.035));
+}
+._page_loading {
+  
+  @include transform(translate3d(0, 0, 0));
+  .page, .globalFooter {
+     opacity: 0;
+  }
+}
+
+.js--fadeImage {
+  @include transition(opacity, .7s, linear);
+  opacity: 0;
+  &.fadeIn {
+    opacity: 1;
+  }
+}
+
+
+// Hop Up
+body._hop_up {
+  @include breakpoint(tablet-portrait) {
+    .featured_work_item {
+      &:nth-of-type(1n),
+      &:nth-of-type(2n) {
+         @include animation(hop-up 1s forwards);
+      }
+      &:nth-of-type(2n+1) {
+        animation-delay: 0s;
+      }
+      &:nth-of-type(2n+2) {
+        animation-delay: 0.2s;
+      }
+    }
+  }
+  @include breakpoint (desktop) {
+    .featured_work_item {
+      &:nth-of-type(3n) {
+        @include animation(hop-up 1s forwards);
+      }
+      &:nth-of-type(3n+1) {
+        animation-delay: 0s;
+      }
+      &:nth-of-type(3n+2) {
+        animation-delay: 0.2s;
+      }
+      &:nth-of-type(3n+3) {
+        margin-right: 0;
+        animation-delay: 0.4s;
+      }
+    }
+  }
+}
+
+body._drop_down {
+  @include breakpoint(tablet-portrait) {
+    .featured_work_item {
+      &:nth-of-type(1n),
+      &:nth-of-type(2n) {
+        @include animation(drop-down 1s backwards);
+      }
+      &:nth-of-type(2n+1) {
+        animation-delay: 0.2s;
+      }
+      &:nth-of-type(2n+2) {
+        animation-delay: 0s;
+      }
+    }
+  }
+  @include breakpoint (desktop) {
+    .featured_work_item {
+
+      &:nth-of-type(3n) {
+        @include animation(drop-down 1s backwards);
+      }
+      &:nth-of-type(3n+1) {
+        animation-delay: 0.4s;
+      }
+      &:nth-of-type(3n+2) {
+        animation-delay: 0.2s;
+      }
+      &:nth-of-type(3n+3) {
+        animation-delay: 0s;
+      }
+    }
+  }
+}
+
+@include keyframes (hop-up) {
+  0% {
+    @include transform(translate3d(0, 0, 0));
+    border-color: #FFF;
+  }
+  100% {
+    @include transform(translate3d(0, -300px, 0));
+    border-color: transparent;
+  }
+}
+
+@include keyframes (drop-down) {
+  0% {
+     @include transform(translate3d(0, -200px, 0));
+     border-color: transparent;
+  }
+  100% {
+    @include transform(translate3d(0, 0, 0));
+    border-color: #FFF;
+  }
+}

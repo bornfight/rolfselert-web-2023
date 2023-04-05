@@ -1,0 +1,29 @@
+/*-- 
+Text and Media
+----------------------------------------------*/
+.text_media {
+  @extend %clearfix;
+}
+.text_media_item {
+  margin-bottom: 16px;
+}
+.text_media_item--media {
+  margin-bottom: 32px;
+}
+@include breakpoint(tablet-portrait) {
+  .text_media_item {
+    width: 50%;
+  }
+  .text_media_item--text {
+    float: left;
+    padding-right: 7.1656050955414%;
+    >*:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .text_media_item--media {
+    float: right;
+    max-width: 620px;
+  }
+}
+
