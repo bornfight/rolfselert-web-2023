@@ -96,13 +96,24 @@ module.exports = function(grunt) {
       Watch
     */
     watch : {
+      options: {
+        livereload: true
+      },
       css : {
         files: '**/*.scss',
-        tasks: ['sass', 'cssmin']
+        tasks: ['sass', 'cssmin'],
+        options: {
+          // Start a live reload server on the default port 35729
+          livereload: true
+        }
       },
       js : {
         files: 'js/reo.js',
-        tasks: ['concat', 'uglify']
+        tasks: ['concat', 'uglify'],
+        options: {
+          // Start a live reload server on the default port 35729
+          livereload: true
+        }
       }
     },
 
@@ -174,6 +185,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-criticalcss');
   grunt.loadNpmTasks('grunt-exec');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+
 
   // Downsync Tasks
   grunt.registerTask('sync_db', ['exec:sync_db']);

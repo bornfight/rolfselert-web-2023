@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/site.min.css?v=6">
   <script src="https://player.vimeo.com/api/player.js"></script>
   <script type="text/javascript" src="//fast.fonts.net/jsapi/18489b80-5f8d-446b-836a-9c07dbe986b7.js"></script>
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-58821205-1"></script>
 <script>
