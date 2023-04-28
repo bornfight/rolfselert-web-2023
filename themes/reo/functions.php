@@ -185,4 +185,10 @@ function sanitize_output($buffer) {
 // ob_start("sanitize_output");
 
 
-?>
+add_filter( 'acf/settings/load_json', function ( $paths ) {
+	unset( $paths[0] );
+
+	$paths[] = get_stylesheet_directory() . '/acf-json';
+
+	return $paths;
+} );

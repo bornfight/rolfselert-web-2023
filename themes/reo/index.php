@@ -1,21 +1,32 @@
-<?php get_header(); ?>
+<?php
+get_header();
+
+// Page Hero
+$splash_video = get_field( 'splash_video', 'option' );
+$main_video   = get_field( 'main_video_vimeo_id', 'option' );
+$mp4_file     = $splash_video[0]['mp4_file'];
+$ogg_file     = $splash_video[0]['ogg_file'];
+$webm_file    = $splash_video[0]['webm_file'];
+$mobile_image = $splash_video[0]['mobile_image'];
+
+// Featured Work
+$featured_work = get_field( 'featured_work', 'option' );
+
+// WIP module
+$use_work_in_progress_page = get_field( 'use_work_in_progress_page', 'option' ) ?? false;
+$projects                  = [];
+$progress_page             = '';
+
+if ( $use_work_in_progress_page ) {
+    $progress_page = get_field( 'work_in_progress_page', 'option' );
+    $projects      = get_field( 'projects', $progress_page );
+} else {
+	$work_in_progress_list = get_field( 'work_in_progress', 'option' );
+}
+?>
 <article id="page" class="page page--home">
-    <?php
-    /*
-      Page Hero
-    */
-    ?>
     <div class="pageHero">
         <div class="pageHero_inner">
-            <?php
-            $splash_video = get_field('splash_video', 'option');
-            $main_video = get_field('main_video_vimeo_id', 'option');
-            $mp4_file = $splash_video[0]['mp4_file'];
-            $ogg_file = $splash_video[0]['ogg_file'];
-            $webm_file = $splash_video[0]['webm_file'];
-            $mobile_image = $splash_video[0]['mobile_image'];
-            ?>
-
             <?php if (!isMobile()) : ?>
                 <div class="pageHero_video"<?php if (!empty($main_video)) : ?> data-js-component="heroVideo"<?php endif; ?>>
                     <div class="pageHero_video_inner">
@@ -61,13 +72,6 @@
         </div>
     </div>
 
-
-    <?php
-    /*
-      Featured Work
-    */
-    $featured_work = get_field('featured_work', 'option');
-    ?>
     <div id="work" class="page_module page_module--featured_work">
         <div class="contentWrapper" data-fade="in">
             <header class="moduleHeader">
@@ -123,44 +127,22 @@
         </div>
     </div>
 
-    <!-- WIP module -->
-    <div id="wip" class="page_module page_module--wip">
+    <?php if ( ! empty( $projects ) ) { ?>
+        <div id="wip" class="page_module page_module--wip">
         <div class="contentWrapper">
             <header class="moduleHeader">
                 <h2>Work in progress</h2>
             </header>
             <div class="wip">
                 <div class="wip__wrap">
-                    <a href="" class="wip__box" data-pjax>
-                        <img src="<?= $image; ?>" alt="<?= $project->post_title; ?>" class="wip__image"/>
-                        <span class="wip__title">
-                            brook house
-                        </span>
-                    </a>
-                    <a href="" class="wip__box" data-pjax>
-                        <img src="<?= $image; ?>" alt="<?= $project->post_title; ?>" class="wip__image"/>
-                        <span class="wip__title">
-                            brook house
-                        </span>
-                    </a>
-                    <a href="" class="wip__box" data-pjax>
-                        <img src="<?= $image; ?>" alt="<?= $project->post_title; ?>" class="wip__image"/>
-                        <span class="wip__title">
-                            brook house
-                        </span>
-                    </a>
-                    <a href="" class="wip__box" data-pjax>
-                        <img src="<?= $image; ?>" alt="<?= $project->post_title; ?>" class="wip__image"/>
-                        <span class="wip__title">
-                            brook house
-                        </span>
-                    </a>
-                    <a href="" class="wip__box" data-pjax>
-                        <img src="<?= $image; ?>" alt="<?= $project->post_title; ?>" class="wip__image"/>
-                        <span class="wip__title">
-                            brook house
-                        </span>
-                    </a>
+                    <?php foreach ( $projects as $key => $project ) { ?>
+                        <a href="<?= get_permalink( $progress_page ) ?>?id=<?= $key ?>" class="wip__box" data-pjax>
+                            <img src="<?= $project['hero'] ?>" alt="<?= $project['title'] ?>" class="wip__image"/>
+                            <span class="wip__title">
+                                <?= $project['title'] ?>
+                            </span>
+                        </a>
+                    <?php } ?>
                 </div>
             </div>
             <a href="#" class="wip__link">
@@ -171,7 +153,7 @@
             </a>
         </div>
     </div>
-    <!-- END WIP module-->
+    <?php } ?>
 
     <?php
     /*
