@@ -145,7 +145,7 @@ if ( $use_work_in_progress_page ) {
                     <?php } ?>
                 </div>
             </div>
-            <a href="#" class="wip__link">
+            <a href="<?= get_permalink( $progress_page ) ?>" class="wip__link">
                 <span>see all work in progress</span>
                 <i class="wip__link-icon">
                     <?= file_get_contents(get_template_directory() . '/img/arrow-right.svg'); ?>
