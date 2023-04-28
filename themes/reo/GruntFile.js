@@ -1,9 +1,9 @@
 // Get config
 var path = require('path');
 module.exports = function(grunt) {
-  
+
   var config   = grunt.file.readJSON(__dirname + '/config.json');
-  
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -29,13 +29,13 @@ module.exports = function(grunt) {
       Uglify
     */
     uglify: {
-        files: {
-            src: 'js/site.js',
-            dest: 'js/',
-            expand: true,
-            flatten: true,
-            ext: '.min.js'
-        }
+      files: {
+        src: 'js/site.js',
+        dest: 'js/',
+        expand: true,
+        flatten: true,
+        ext: '.min.js'
+      }
     },
 
     /*
@@ -52,9 +52,9 @@ module.exports = function(grunt) {
       }
     },
 
-     /*
-      Combine Media Queries
-    */
+    /*
+     Combine Media Queries
+   */
     cmq: {
       dev: {
         files: {
@@ -129,13 +129,13 @@ module.exports = function(grunt) {
         cmd : function () {
 
           var connection  = config.stage_connection,
-              
+
               // Staging Stuff
               stage_url   = config.stage_url,
               stage_db    = config.stage_db.name,
               stage_user  = config.stage_db.user,
               stage_pass  = config.stage_db.pass,
-              
+
               // Local Stuff
               local_url   = config.dev_url,
               local_db    = config.local_db.name,
@@ -144,20 +144,20 @@ module.exports = function(grunt) {
               local_mysql = config.local_mysql,
               commands    = [];
           commands.push('ssh ' + connection + ' "mysqldump -u ' + stage_user + ' -p' + stage_pass + ' ' + stage_db + ' > ' + stage_db +'.sql"');
-          
+
           commands.push('scp ' + connection + ':' + stage_db + '.sql . ');
-          
+
           commands.push("sed -i .bak 's/" + stage_url + "/" + local_url + "/g' " + stage_db + ".sql ");
-          
+
           commands.push(local_mysql + ' -u ' + local_user + ' -p' + local_pass + ' ' + local_db + ' < ' + stage_db + '.sql');
-          
+
           commands.push('rm ' + stage_db + '.sql.bak');
           commands.push('rm ' + stage_db + '.sql');
 
           return commands.join('&&');
         }
       },
-      
+
       /*
         Sync Assets
       */
@@ -194,7 +194,7 @@ module.exports = function(grunt) {
 
   // Watcher Tasks
   grunt.registerTask('default', ['watch']);
-  
+
   // Critical
   grunt.registerTask('critical', ['criticalcss']);
 

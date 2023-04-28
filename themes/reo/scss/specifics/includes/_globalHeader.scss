@@ -153,7 +153,7 @@ Global Header
     fill: #272727;
   }
   a{
-    color: #272727;
+    color: $color-gray-text;
   }
 
   @include breakpoint(tablet-landscape) {
@@ -165,6 +165,9 @@ Global Header
   top: 0;
 }
 
+.globalHeader--none{
+  display: none;
+}
 
 .globalHeader--dark{
   @include breakpoint(tablet-landscape) {

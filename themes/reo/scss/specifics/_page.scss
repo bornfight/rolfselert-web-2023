@@ -115,6 +115,13 @@ Page
   }
 }
 
+.page--work{
+  padding-top: 100px;
+  @include breakpoint(tablet-landscape) {
+    padding-top: 0;
+  }
+}
+
 .videoPopoutPlayer{
   .playButton{
     position: absolute;

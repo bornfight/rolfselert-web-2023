@@ -2,95 +2,100 @@
 Global Nav
 ----------------------------------------------*/
 .globalNav {
-   font-family: 'Gotham SSm A','Gotham SSm B',"Helvetica Neue",Arial,sans-serif;
-   font-weight: 200;
-   font-style: normal;
-   
-   letter-spacing: 2.5px;
-   
-   // mobile styles
-   position: fixed;
-   z-index: 3;
-   background: #000;
-   height: 100%;
-   width: 100%;
-   top: 0;
-   left: 0;
-   display: table;
-   @include transform(translate3d(0, -100%, 0));
-   @include transition(all 1s cubic-bezier(0.19, 1, 0.22, 1));
-   opacity: 0;
-   ._nav_open & {
-     opacity: 1;
-     @include transform(translate3d(0, 0, 0));
-   }
+    font-family: 'Gotham SSm A', 'Gotham SSm B', "Helvetica Neue", Arial, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+
+    letter-spacing: 2.5px;
+
+    // mobile styles
+    position: fixed;
+    z-index: 3;
+    background: #000;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: table;
+    @include transform(translate3d(0, -100%, 0));
+    @include transition(all 1s cubic-bezier(0.19, 1, 0.22, 1));
+    opacity: 0;
+
+    ._nav_open & {
+        opacity: 1;
+        @include transform(translate3d(0, 0, 0));
+    }
 }
 
 .globalNav_menu {
-  @extend %clearfix;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  display: table-cell;
-  vertical-align: middle;
-  @include transform(translate3d(0, -75%, 0));
-  @include transition(all 1s cubic-bezier(0.19, 1, 0.22, 1));
-  opacity: 0;
-  ._nav_open & {
-    opacity: 1;
-    @include transform(translate3d(0, 0, 0));
-  }
+    @extend %clearfix;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    @include transform(translate3d(0, -75%, 0));
+    @include transition(all 1s cubic-bezier(0.19, 1, 0.22, 1));
+    opacity: 0;
+
+    ._nav_open & {
+        opacity: 1;
+        @include transform(translate3d(0, 0, 0));
+    }
 }
+
 .globalNav_item {
-  list-style: none;
-  margin: 75px 0;
-  padding: 0;
-  text-align: center;
-  font-size: 23px;
+    list-style: none;
+    margin: 75px 0;
+    padding: 0;
+    text-align: center;
+    font-size: 23px;
 }
+
 .globalNav_link {
-  color: #FFF;
-  text-decoration: none;
-  text-transform: uppercase;
+    color: #FFF;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
 }
 
 @include breakpoint(tablet-landscape) {
 
-  .globalNav_toggle {
-    display: none;
-  }
-  .globalNav {
-    opacity: 1;
-    @include transform(translate3d(0, 0, 0));
-    margin-top: 65px;
-    display: block;
-    position: relative;
-    background: transparent;
-    height: auto;
-    width: auto;
-    top: auto;
-    left: auto;
-    float: right;
-  }
-  
-  .globalNav_menu {
-    opacity: 1;
-    @include transform(translate3d(0, 0, 0));
-    float: right;
-  }
-  .globalNav_item {
-    font-size: 14px;
-    margin: 0;
-    float: left;
-    margin-left: 25px;
-  }
+    .globalNav_toggle {
+        display: none;
+    }
+    .globalNav {
+        opacity: 1;
+        @include transform(translate3d(0, 0, 0));
+        margin-top: 65px;
+        display: block;
+        position: relative;
+        background: transparent;
+        height: auto;
+        width: auto;
+        top: auto;
+        left: auto;
+        float: right;
+    }
+
+    .globalNav_menu {
+        opacity: 1;
+        @include transform(translate3d(0, 0, 0));
+        float: right;
+    }
+    .globalNav_item {
+        font-size: 14px;
+        margin: 0;
+        float: left;
+        margin-left: 25px;
+    }
 }
 
-@include keyframes (nav-open) {
-  0% {
-    
-  }
-  100% {
-    @include transform(translate3d(0, 0, 0));
-  }
+@include keyframes(nav-open) {
+    0% {
+
+    }
+    100% {
+        @include transform(translate3d(0, 0, 0));
+    }
 }
