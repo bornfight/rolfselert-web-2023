@@ -98,7 +98,7 @@
         $i = 0;
         foreach ($modules as $module) :
           $template = 'partials/page_modules-' . $module['acf_fc_layout'] . '.php';
-          $has_rule = ($modules[$i+1]['acf_fc_layout'] == 'horizontal_rule') ? true : false;
+          $has_rule = isset( $modules[ $i + 1]['acf_fc_layout'] ) && ( $modules[ $i + 1]['acf_fc_layout'] == 'horizontal_rule');
           if ( file_exists(dirname(__FILE__) . '/'. $template) ) :
 
 echo '<!-- =============== ' . $module['acf_fc_layout'] . ' =============== -->
