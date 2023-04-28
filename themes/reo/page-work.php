@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+get_header();
+require_once( 'page-work-functions.php' );
+?>
 <article id="page" class="page page--work">
     <div class="contentWrapper" data-fade="in">
         <div class="page-work">
@@ -6,13 +9,14 @@
                 <h2>Work</h2>
             </header>
             <div class="page-work__wrapper">
-                <?php for($i = 0; $i < 15; $i++) { ?>
-                <a href="#" class="page-work__box">
-                    <img src="https://picsum.photos/1200" alt="" class="page-work__image"/>
-                    <h3 class="page-work__title">
-                        Title
-                    </h3>
-                </a>
+                <?php foreach ( get_projects() as $project ) { ?>
+                    <?php $image = get_project_image( $project ) ?>
+                    <a href="<?= get_permalink( $project ) ?>" class="page-work__box">
+                        <img src="<?= $image ?>" alt="<?= get_the_title( $project ) ?>" class="page-work__image"/>
+                        <h3 class="page-work__title">
+                            <?= get_the_title( $project ) ?>
+                        </h3>
+                    </a>
                 <?php } ?>
             </div>
             <div class="page-work__pagination">
