@@ -16,6 +16,7 @@ $featured_work = get_field( 'featured_work', 'option' );
 $use_work_in_progress_page = get_field( 'use_work_in_progress_page', 'option' ) ?? false;
 $projects                  = [];
 $progress_page             = '';
+$work_page                 = get_field( 'work_page', 'option' );
 
 if ( $use_work_in_progress_page ) {
     $progress_page = get_field( 'work_in_progress_page', 'option' );
@@ -116,7 +117,7 @@ if ( $use_work_in_progress_page ) {
             </div>
 
             <!-- NEW SEE MORE BUTTON-->
-            <a href="#" class="featured-work__link">
+            <a href="<?= get_permalink( $work_page ) ?>" class="featured-work__link">
                 <span>see all work</span>
                 <i class="featured-work__link-icon">
                     <?= file_get_contents(get_template_directory() . '/img/arrow-right.svg'); ?>

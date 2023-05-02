@@ -14,3 +14,5 @@ wphb-logs/
 *.sql
 advanced-cache.php
 wp-cache-config.php
+themes/twentysixteen/*
+themes/twentyfifteen/*

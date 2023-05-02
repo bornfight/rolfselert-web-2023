@@ -51,7 +51,7 @@ if( function_exists('acf_add_options_page') ) {
       'redirect' => false,
       'position' => 2
     )
-    
+
   );
   
   acf_add_options_page(
@@ -102,7 +102,7 @@ function create_project_post_type ()
         'add_new_item' => 'Add New Project'
       ),
     'public' => true,
-    'rewrite' => array('slug' => 'projects'),
+    'rewrite' => array('slug' => 'work'),
     'has_archive' => true,
     'menu_position' => 1
     )
