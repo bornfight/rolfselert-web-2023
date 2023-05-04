@@ -1,6 +1,6 @@
 <?php
 function get_number_of_projects_per_page(): int {
-	return 9;
+	return 15;
 }
 
 function get_number_of_page_links(): int {
