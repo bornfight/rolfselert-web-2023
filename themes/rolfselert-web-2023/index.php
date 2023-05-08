@@ -123,7 +123,12 @@ if ( $use_work_in_progress_page ) {
             </header>
             <div class="wip">
                 <div class="wip__wrap">
-                    <?php foreach ( $projects as $key => $project ) { ?>
+                    <?php
+                    foreach ( $projects as $key => $project ) {
+                        if ( $key > 4 ) {
+                            break;
+                        }
+                    ?>
                         <a href="<?= get_permalink( $progress_page ) ?>?id=<?= $key ?>" class="wip__box" data-pjax>
                             <img src="<?= $project['hero'] ?>" alt="<?= $project['title'] ?>" class="wip__image"/>
                             <span class="wip__title">

@@ -6,7 +6,8 @@
   Clean up wp_head
   ----------------------------------------------------
 */
-remove_action('wp_head', 'rsd_link' );
+
+remove_action( 'wp_head', 'rsd_link' );
 remove_action('wp_head', 'wp_generator');
 remove_action('wp_head', 'wlwmanifest_link');
 remove_action('wp_head', 'print_emoji_detection_script', 7);
@@ -192,3 +193,18 @@ add_filter( 'acf/settings/load_json', function ( $paths ) {
 
 	return $paths;
 } );
+
+include_once( get_stylesheet_directory() . '/core/ThemeUpdate.php' );
+include_once( get_stylesheet_directory() . '/core/ThemeUpdateChecker.php' );
+
+if ( class_exists( 'ThemeUpdateChecker' ) ) {
+	//Initialize the update checker.
+	$example_update_checker = new ThemeUpdateChecker(
+		'rolfselert-web-2023',                                            //Theme folder name, AKA "slug".
+		'https://service.bwp.zone/?identifier=599d195061918ba5ef4c3b70a010cfef&type=manifest' //URL of the metadata file.
+	);
+
+	add_action( 'load-themes.php', function () use ( $example_update_checker ) {
+		$example_update_checker->check_for_updates();
+	} );
+}
