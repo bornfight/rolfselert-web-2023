@@ -2319,7 +2319,8 @@ WIP
     height: auto; }
 
 .page-work {
-  padding-bottom: 100px; }
+  padding-bottom: 100px;
+  padding-top: 200px; }
   .page-work__wrapper {
     display: flex;
     flex-wrap: wrap;
