@@ -1729,7 +1729,7 @@ Featured Work
 .featured-work__link-icon {
   display: inline-flex;
   line-height: normal;
-  margin-left: 15px;
+  margin-left: 5px;
   fill: #0112ff;
   width: 15px; }
   .featured-work__link-icon svg {
@@ -2311,7 +2311,7 @@ WIP
 .wip__link-icon {
   display: inline-flex;
   line-height: normal;
-  margin-left: 15px;
+  margin-left: 5px;
   fill: #0112ff;
   width: 15px; }
   .wip__link-icon svg {

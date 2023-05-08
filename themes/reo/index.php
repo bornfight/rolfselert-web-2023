@@ -101,19 +101,6 @@ if ( $use_work_in_progress_page ) {
                         </div>
                     </div>
                 <?php endforeach; ?>
-
-                <!-- OLD SEE MORE BUTTON-->
-
-                <!--        <div class="featured_work_item featured_work_item--inProgress"> -->
-                <!--          <div class="featured_work_inner"> -->
-                <!--            <img src="http://reo.dev/wp-content/uploads/Parker-REO-carprt-s25-2-2x1_420x420_acf_cropped.jpg" alt="Work in Progress" class="featured_work_image"> -->
-                <!--            <h3 class="featured_work_title"> <a href="-->
-                <?php //get_site_url()?><!--/in-progress" data-pjax="">Work In Progress</a> </h3> -->
-                <!--          </div>-->
-                <!--        </div>-->
-
-                <!-- END OLD SEE MORE BUTTON-->
-
             </div>
 
             <!-- NEW SEE MORE BUTTON-->
