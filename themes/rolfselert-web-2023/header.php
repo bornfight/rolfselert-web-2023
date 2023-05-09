@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <header class="globalHeader <?php if (is_page("In Progress")): ?> globalHeader--dark<?php endif; ?> <?php if (is_page("Work")): ?> globalHeader--none<?php endif; ?>">
+    <header class="globalHeader <?= is_page("In Progress") || is_post_type_archive( 'project' ) ? "globalHeader--dark" : "" ?>">
         <div class="contentWrapper">
             <a href="<?= site_url(); ?>" class="home_link logo" data-pjax>
                 <?php
