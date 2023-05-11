@@ -106,9 +106,10 @@ if ( $use_work_in_progress_page ) {
             <!-- NEW SEE MORE BUTTON-->
             <a href="<?= get_permalink( $work_page ) ?>" class="featured-work__link">
                 <span>see all work</span>
-                <i class="featured-work__link-icon">
-                    <?= file_get_contents(get_template_directory() . '/img/arrow-right.svg'); ?>
-                </i>
+                <i class="featured-work__arrow"></i>
+<!--                <i class="featured-work__link-icon">-->
+<!--                    --><?php //= file_get_contents(get_template_directory() . '/img/arrow-right.svg'); ?>
+<!--                </i>-->
             </a>
             <!-- END SEE MORE BUTTON-->
 
@@ -140,9 +141,10 @@ if ( $use_work_in_progress_page ) {
             </div>
             <a href="<?= get_permalink( $progress_page ) ?>" class="wip__link">
                 <span>see all work in progress</span>
-                <i class="wip__link-icon">
-                    <?= file_get_contents(get_template_directory() . '/img/arrow-right.svg'); ?>
-                </i>
+                <i class="wip__arrow"></i>
+                <!--                <i class="wip__link-icon">-->
+<!--                    --><?php //= file_get_contents(get_template_directory() . '/img/arrow-right.svg'); ?>
+<!--                </i>-->
             </a>
         </div>
     </div>
