@@ -4,6 +4,20 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" user-scalable="yes">
     <title><?php wp_title('&laquo;', true, 'right'); ?><?php bloginfo('name'); ?></title>
+    <meta name="description" content="undefined">
+    <meta property="og:url" content="https://rolfselert-web-2023-staging.bwp.zone/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rolfs Elert Office">
+    <meta property="og:description" content="undefined">
+    <meta property="og:image" content="">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="rolfselert-web-2023-staging.bwp.zone">
+    <meta property="twitter:url" content="https://rolfselert-web-2023-staging.bwp.zone/">
+    <meta name="twitter:title" content="Rolfs Elert Office">
+    <meta name="twitter:description" content="undefined">
+    <meta name="twitter:image" content="">
     <link rel="stylesheet" href="https://unpkg.com/slim-select@latest/dist/slimselect.css"/>
     <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6567652/634828/css/fonts.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/site.min.css?v=6.2">
