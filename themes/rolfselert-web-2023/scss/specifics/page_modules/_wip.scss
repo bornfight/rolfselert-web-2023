@@ -56,7 +56,8 @@ WIP
         @include breakpoint(desktop) {
             flex: 1;
             width: initial;
-            min-height: 330px;
+            min-height: 395px;
+            aspect-ratio: auto;
 
             &:hover {
                 flex-grow: 6;
@@ -70,7 +71,6 @@ WIP
 
         @include breakpoint(tablet-portrait) {
             width: 49%;
-            aspect-ratio: auto;
         }
     }
 
@@ -128,8 +128,10 @@ WIP
         font-weight: 500;
         font-size: 14px;
         display: inline-flex;
+        align-items: center;
         float: right;
         transition: color 0.3s ease-in-out;
+        letter-spacing: 0.1em;
 
         span {
             transition: transform 0.3s ease-in-out;
@@ -137,22 +139,49 @@ WIP
 
         &:hover {
             color: $color-blue;
+
             span {
                 transform: translate3d(-5%, 0, 0);
+            }
+
+            .wip__arrow {
+                transition: width .3s ease-in-out;
+                width: 16px;
             }
         }
     }
 
-    &__link-icon {
-        display: inline-flex;
-        line-height: normal;
+    &__arrow {
+        height: 2px;
+        width: 12px;
+        position: relative;
+        display: inline-block;
         margin-left: 5px;
-        fill: $color-blue;
-        width: 15px;
+        cursor: pointer;
+        background: $color-blue;
+        transition: width .3s ease-in-out;
 
-        svg {
-            width: 100%;
-            height: auto;
+
+        &:before,
+        &:after {
+            content: "";
+            background: $color-blue;
+            position: absolute;
+            height: 2px;
+            width: 7px;
+            border-radius: 30%;
+        }
+
+        &:before {
+            right: -2px;
+            bottom: -2px;
+            transform: rotate(-45deg);
+        }
+
+        &:after {
+            right: -2px;
+            top: -2px;
+            transform: rotate(45deg);
         }
     }
 }

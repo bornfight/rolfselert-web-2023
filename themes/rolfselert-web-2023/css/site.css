@@ -1718,7 +1718,9 @@ Featured Work
   font-weight: 500;
   font-size: 14px;
   display: inline-flex;
-  float: right; }
+  align-items: center;
+  float: right;
+  letter-spacing: 0.1em; }
   .featured-work__link span {
     color: #4A4A4A;
     transform: translate3d(0, 0, 0);
@@ -1726,15 +1728,33 @@ Featured Work
   .featured-work__link:hover span {
     transform: translate3d(-5%, 0, 0);
     color: #0112ff; }
-.featured-work__link-icon {
-  display: inline-flex;
-  line-height: normal;
+  .featured-work__link:hover .featured-work__arrow {
+    transition: width .3s ease-in-out;
+    width: 16px; }
+.featured-work__arrow {
+  height: 2px;
+  width: 12px;
+  position: relative;
+  display: inline-block;
   margin-left: 5px;
-  fill: #0112ff;
-  width: 15px; }
-  .featured-work__link-icon svg {
-    width: 100%;
-    height: auto; }
+  cursor: pointer;
+  background: #0112ff;
+  transition: width .3s ease-in-out; }
+  .featured-work__arrow:before, .featured-work__arrow:after {
+    content: "";
+    background: #0112ff;
+    position: absolute;
+    height: 2px;
+    width: 7px;
+    border-radius: 30%; }
+  .featured-work__arrow:before {
+    right: -2px;
+    bottom: -2px;
+    transform: rotate(-45deg); }
+  .featured-work__arrow:after {
+    right: -2px;
+    top: -2px;
+    transform: rotate(45deg); }
 
 /*-- 
 Hero Image
@@ -2245,7 +2265,8 @@ WIP
     .wip__box {
       flex: 1;
       width: initial;
-      min-height: 330px; }
+      min-height: 395px;
+      aspect-ratio: auto; }
       .wip__box:hover {
         flex-grow: 6; }
         .wip__box:hover .wip__title {
@@ -2253,8 +2274,7 @@ WIP
           transition: opacity .3s ease-in-out .4s; } }
   @media (min-width: 601px) {
     .wip__box {
-      width: 49%;
-      aspect-ratio: auto; } }
+      width: 49%; } }
 .wip__title {
   position: absolute;
   top: 50%;
@@ -2300,23 +2320,43 @@ WIP
   font-weight: 500;
   font-size: 14px;
   display: inline-flex;
+  align-items: center;
   float: right;
-  transition: color 0.3s ease-in-out; }
+  transition: color 0.3s ease-in-out;
+  letter-spacing: 0.1em; }
   .wip__link span {
     transition: transform 0.3s ease-in-out; }
   .wip__link:hover {
     color: #0112ff; }
     .wip__link:hover span {
       transform: translate3d(-5%, 0, 0); }
-.wip__link-icon {
-  display: inline-flex;
-  line-height: normal;
+    .wip__link:hover .wip__arrow {
+      transition: width .3s ease-in-out;
+      width: 16px; }
+.wip__arrow {
+  height: 2px;
+  width: 12px;
+  position: relative;
+  display: inline-block;
   margin-left: 5px;
-  fill: #0112ff;
-  width: 15px; }
-  .wip__link-icon svg {
-    width: 100%;
-    height: auto; }
+  cursor: pointer;
+  background: #0112ff;
+  transition: width .3s ease-in-out; }
+  .wip__arrow:before, .wip__arrow:after {
+    content: "";
+    background: #0112ff;
+    position: absolute;
+    height: 2px;
+    width: 7px;
+    border-radius: 30%; }
+  .wip__arrow:before {
+    right: -2px;
+    bottom: -2px;
+    transform: rotate(-45deg); }
+  .wip__arrow:after {
+    right: -2px;
+    top: -2px;
+    transform: rotate(45deg); }
 
 .page-work {
   padding-bottom: 100px;

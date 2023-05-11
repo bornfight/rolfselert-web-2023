@@ -117,7 +117,9 @@ Featured Work
         font-weight: 500;
         font-size: 14px;
         display: inline-flex;
+        align-items: center;
         float: right;
+        letter-spacing: 0.1em;
 
         span {
             color: $color-gray-text;
@@ -130,19 +132,45 @@ Featured Work
                 transform: translate3d(-5%, 0, 0);
                 color: $color-blue;
             }
+
+            .featured-work__arrow {
+                transition: width .3s ease-in-out;
+                width: 16px;
+            }
         }
     }
 
-    &__link-icon {
-        display: inline-flex;
-        line-height: normal;
+    &__arrow {
+        height: 2px;
+        width: 12px;
+        position: relative;
+        display: inline-block;
         margin-left: 5px;
-        fill: $color-blue;
-        width: 15px;
+        cursor: pointer;
+        background: $color-blue;
+        transition: width .3s ease-in-out;
 
-        svg {
-            width: 100%;
-            height: auto;
+
+        &:before,
+        &:after {
+            content: "";
+            background: $color-blue;
+            position: absolute;
+            height: 2px;
+            width: 7px;
+            border-radius: 30%;
+        }
+
+        &:before {
+            right: -2px;
+            bottom: -2px;
+            transform: rotate(-45deg);
+        }
+
+        &:after {
+            right: -2px;
+            top: -2px;
+            transform: rotate(45deg);
         }
     }
 }
