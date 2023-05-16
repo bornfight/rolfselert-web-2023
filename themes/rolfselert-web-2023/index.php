@@ -76,7 +76,7 @@ if ( $use_work_in_progress_page ) {
     <div id="work" class="page_module page_module--featured_work">
         <div class="contentWrapper" data-fade="in">
             <header class="moduleHeader">
-                <h2>Featured Work!</h2>
+                <h2>Featured Work</h2>
             </header>
             <div class="featured_work">
                 <?php
