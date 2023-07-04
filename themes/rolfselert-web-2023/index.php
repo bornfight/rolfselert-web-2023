@@ -238,7 +238,7 @@ if ( $use_work_in_progress_page ) {
                             </div>
                         </a>
                     </div>
-                <?
+                <?php
                 endforeach;
                 ?>
             </div>

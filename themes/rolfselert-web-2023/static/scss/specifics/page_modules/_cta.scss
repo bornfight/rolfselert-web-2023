@@ -1,10 +1,10 @@
-/*-- 
+/*--
 CTA
 ----------------------------------------------*/
 .page_module.page_module--cta {
-  background: 
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-    url(../img/office_sm.jpg);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../img/office_sm.jpg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -23,7 +23,7 @@ CTA
     margin-right: 10px;
     width: 18px!important;
   }
-  
+
   a {
     color: #FFF;
     text-decoration: none;
