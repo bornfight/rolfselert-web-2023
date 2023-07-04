@@ -1,4 +1,4 @@
-/*-- 
+/*--
 Page Load
 ----------------------------------------------*/
 
@@ -6,8 +6,10 @@ Page Load
   @include transition(opacity, 1s, cubic-bezier(0.95, 0.05, 0.795, 0.035));
 }
 ._page_loading {
-  
+
   @include transform(translate3d(0, 0, 0));
+
+
   .page, .globalFooter {
      opacity: 0;
   }

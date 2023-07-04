@@ -1,4 +1,4 @@
-var REO = REO || {};
+var Index = Index || {};
 
 (function (window, $, APP) {
 
@@ -135,11 +135,11 @@ var REO = REO || {};
         'resizeDuration': 100,
         'wrapAround': true
       })
-      console.log('noice')
     },
 
     lightBoxTrigger: function($elem) {
       $elem.on('click', function(){
+
         var lightBox =  $elem.attr('data-trigger')
         $('*[data-lightbox="'+ lightBox +'"]').eq(0).trigger('click');
       })
@@ -397,4 +397,4 @@ var REO = REO || {};
     APP.helpers.initComponents($('body'));
 
   });
-} (window, jQuery, REO, undefined));
+} (window, jQuery, Index, undefined));

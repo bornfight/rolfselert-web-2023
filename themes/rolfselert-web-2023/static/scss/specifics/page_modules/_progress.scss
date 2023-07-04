@@ -9,7 +9,7 @@
 .projectBlock {
 	width: 100%;
 	margin-bottom: 30px;
-	
+
 	@include breakpoint('tablet-portrait') {
 		padding-right: 15px;
 		width: 50%;
@@ -20,14 +20,14 @@
     &:nth-child(n+3) {
       .projectBlock_content{
         border-top: 3px solid #efefef;
-        padding-top: 40px;  
+        padding-top: 40px;
       }
     }
 	}
 }
 
 .projectBlock_content {
-  
+
 	.image {
 		@include aspectRatio(570, 415, '.image_inner');
 		margin-bottom: 30px;
@@ -110,7 +110,7 @@ body.lb-disable-scrolling {
   top: 0;
   left: 0;
   z-index: 9999;
-  background-color: white;
+  background-color: black;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
   display: none;
@@ -312,6 +312,11 @@ body.lb-disable-scrolling {
 
 #lightboxOverlay { position: fixed !important; top: 0; left: 0; height: 100% !important; width: 100% !important; }
 #lightbox { position: fixed !important; top: 50% !important; transform: translateY(-50%); }
+
 .lb-dataContainer{
   display: none;
+
+    .lb-close {
+        display: none;
+    }
 }

@@ -20,7 +20,7 @@
     <meta name="twitter:image" content="">
     <link rel="stylesheet" href="https://unpkg.com/slim-select@latest/dist/slimselect.css"/>
     <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6567652/634828/css/fonts.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/site.min.css?v=6.3">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/static/dist/style.css?v=6.3">
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="https://unpkg.com/slim-select@latest/dist/slimselect.min.js"></script>
     <script type="text/javascript" src="//fast.fonts.net/jsapi/18489b80-5f8d-446b-836a-9c07dbe986b7.js"></script>
