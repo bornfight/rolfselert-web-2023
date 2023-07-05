@@ -1004,7 +1004,7 @@ Page
   opacity: 0.6;
 }
 
-/*-- 
+/*--
 Global Header
 ----------------------------------------------*/
 .globalHeader {
@@ -1017,6 +1017,20 @@ Global Header
   background: white;
   position: fixed;
   height: 70px;
+}
+.globalHeader > i {
+  display: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 4;
+  background-color: #000;
+}
+._nav_open .globalHeader > i {
+  display: block;
 }
 .globalHeader:before {
   display: none;
@@ -1035,7 +1049,7 @@ Global Header
   background: -o-linear-gradient(left, #4a24af 0%, #fc5952 50%, #ecd551 100%); /* Opera 11.10+ */
   background: -ms-linear-gradient(left, #4a24af 0%, #fc5952 50%, #ecd551 100%); /* IE10+ */
   background: linear-gradient(to right, #4a24af 0%, #fc5952 50%, #ecd551 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4a24af", endColorstr="#ecd551",GradientType=1 ); /* IE6-8 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4a24af", endColorstr="#ecd551", GradientType=1); /* IE6-8 */
 }
 .globalHeader:after {
   display: block;
@@ -1054,7 +1068,7 @@ Global Header
   background: -o-linear-gradient(left, #4a24af 0%, #fc5952 50%, #ecd551 100%); /* Opera 11.10+ */
   background: -ms-linear-gradient(left, #4a24af 0%, #fc5952 50%, #ecd551 100%); /* IE10+ */
   background: linear-gradient(to right, #4a24af 0%, #fc5952 50%, #ecd551 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4a24af", endColorstr="#ecd551",GradientType=1 ); /* IE6-8 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4a24af", endColorstr="#ecd551", GradientType=1); /* IE6-8 */
 }
 @media (min-width: 769px) {
   .globalHeader {
@@ -1088,8 +1102,14 @@ Global Header
 .logo g {
   fill: #272727;
 }
+._nav_open .logo g {
+  fill: #ffffff;
+}
 .logo a {
   color: #272727;
+}
+._nav_open .logo a {
+  color: #ffffff;
 }
 @media (min-width: 769px) {
   .logo {
@@ -1141,7 +1161,7 @@ Global Header
   background: -o-linear-gradient(left, #4a24af 0%, #fc5952 50%, #ecd551 100%); /* Opera 11.10+ */
   background: -ms-linear-gradient(left, #4a24af 0%, #fc5952 50%, #ecd551 100%); /* IE10+ */
   background: linear-gradient(to right, #4a24af 0%, #fc5952 50%, #ecd551 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4a24af", endColorstr="#ecd551",GradientType=1 ); /* IE6-8 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4a24af", endColorstr="#ecd551", GradientType=1); /* IE6-8 */
 }
 .stickyHeader .logo {
   margin-top: 8px;
@@ -1178,14 +1198,16 @@ Global Header
   }
 }
 
-/*-- 
+/*--
 Global Nav
 ----------------------------------------------*/
 .globalNav {
   font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
   font-weight: 200;
   font-style: normal;
+  padding-top: 70px;
   letter-spacing: 2.5px;
+  overflow: auto;
   position: fixed;
   z-index: 3;
   background: #000;
@@ -1193,7 +1215,8 @@ Global Nav
   width: 100%;
   top: 0;
   left: 0;
-  display: table;
+  display: flex;
+  flex-direction: column;
   -webkit-transform: translate3d(0, -100%, 0);
   -moz-transform: translate3d(0, -100%, 0);
   -ms-transform: translate3d(0, -100%, 0);
@@ -1216,7 +1239,7 @@ Global Nav
 .globalNav_menu {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: auto;
   display: table-cell;
   vertical-align: middle;
   -webkit-transform: translate3d(0, -75%, 0);
@@ -1240,7 +1263,7 @@ Global Nav
 
 .globalNav_item {
   list-style: none;
-  margin: 75px 0;
+  margin: 45px 0;
   padding: 0;
   text-align: center;
   font-size: 23px;
@@ -1252,8 +1275,48 @@ Global Nav
   text-transform: uppercase;
   font-weight: 400;
 }
+@media (min-width: 769px) {
+  .globalNav_link.is-hidden-desktop {
+    display: none;
+  }
+}
+
+.globalNav_contact {
+  list-style: none;
+  padding-left: 0;
+  position: relative;
+  padding-top: 45px;
+  padding-bottom: 20px;
+}
+.globalNav_contact:before {
+  content: "";
+  width: 73px;
+  height: 4px;
+  background-color: white;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.globalNav_contact .iconContain {
+  max-width: 24px;
+}
+.globalNav_contact .contacts_item_text {
+  color: white;
+}
+.globalNav_contact .contacts_item_text p,
+.globalNav_contact .contacts_item_text a {
+  letter-spacing: normal;
+}
+.globalNav_contact .contacts_item_text a {
+  color: inherit;
+}
 
 @media (min-width: 769px) {
+  .globalNav_contact {
+    display: none;
+  }
   .globalNav_toggle {
     display: none;
   }
@@ -1273,6 +1336,7 @@ Global Nav
     top: auto;
     left: auto;
     float: right;
+    padding-top: 0;
   }
   .globalNav_menu {
     opacity: 1;
@@ -1309,7 +1373,7 @@ Global Nav
     transform: translate3d(0, 0, 0);
   }
 }
-/*-- 
+/*--
 Global Nav Toggle
 ----------------------------------------------*/
 .globalNav_toggle {
@@ -1346,6 +1410,9 @@ Global Nav Toggle
   -moz-transition: 0.25s ease-in-out;
   -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
+}
+._nav_open .globalNav_toggle span {
+  background: #ffffff;
 }
 
 .globalNav_toggle span:nth-child(1) {
@@ -1818,11 +1885,11 @@ Contact
   text-decoration: none;
 }
 
-/*-- 
+/*--
 CTA
 ----------------------------------------------*/
 .page_module.page_module--cta {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/office_sm.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../img/office_sm.jpg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -1875,7 +1942,7 @@ Featured Awards
   text-align: center;
 }
 
-/*-- 
+/*--
 Featured Work
 ----------------------------------------------*/
 .featured_work {
@@ -1995,8 +2062,10 @@ Featured Work
   font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
   font-weight: 500;
   font-size: 14px;
-  display: inline-flex;
+  display: flex;
+  width: 100%;
   align-items: center;
+  justify-content: center;
   float: right;
   letter-spacing: 0.1em;
 }
@@ -2042,6 +2111,12 @@ Featured Work
   transform: rotate(45deg);
 }
 
+@media (min-width: 769px) {
+  .featured-work__link {
+    display: inline-flex;
+    width: auto;
+  }
+}
 /*-- 
 Hero Image
 ----------------------------------------------*/
@@ -2426,7 +2501,7 @@ body.lb-disable-scrolling {
   height: 250px;
   margin: 0 auto;
   /* Background color behind image.
-  This is visible during transitions. */
+     This is visible during transitions. */
   background-color: white;
 }
 
@@ -2560,7 +2635,8 @@ body.lb-disable-scrolling {
   clear: left;
   padding-bottom: 1em;
   font-size: 12px;
-  color: #999999;
+  color: #ffffff;
+  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
 }
 
 .lb-data .lb-close {
@@ -2602,13 +2678,17 @@ body.lb-disable-scrolling {
 .lb-dataContainer {
   display: none;
 }
-.lb-dataContainer .lb-close {
-  display: none;
-}
-
 /*--
 WIP
 ----------------------------------------------*/
+.wip {
+  display: none;
+}
+@media (min-width: 769px) {
+  .wip {
+    display: block;
+  }
+}
 .wip__wrap {
   display: flex;
   flex-wrap: wrap;
@@ -2650,6 +2730,7 @@ WIP
   left: 0;
   opacity: 0;
   z-index: 2;
+  pointer-events: none;
   transition: opacity 0.5s ease-in-out;
 }
 .wip__box:hover {
@@ -2677,6 +2758,14 @@ WIP
   .wip__box {
     width: 49%;
   }
+}
+.wip__box-inner {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+.wip__box-images {
+  display: none;
 }
 .wip__title {
   position: absolute;
@@ -2727,8 +2816,10 @@ WIP
   font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
   font-weight: 500;
   font-size: 14px;
-  display: inline-flex;
+  width: 100%;
+  display: flex;
   align-items: center;
+  justify-content: center;
   float: right;
   transition: color 0.3s ease-in-out;
   letter-spacing: 0.1em;
@@ -2773,6 +2864,99 @@ WIP
   right: -2px;
   top: -2px;
   transform: rotate(45deg);
+}
+
+@media (min-width: 769px) {
+  .wip__link {
+    display: inline-flex;
+    width: auto;
+  }
+}
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  flex: 0 0 75%;
+  min-width: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.wip-mobile {
+  margin-left: -16px;
+  margin-right: -16px;
+  padding-bottom: 35px;
+}
+@media (min-width: 769px) {
+  .wip-mobile {
+    display: none;
+  }
+}
+.wip-mobile__box.is-selected .wip-mobile__title {
+  opacity: 1;
+}
+.wip-mobile__box.is-selected .wip-mobile__title p:after {
+  transform: translateX(-50%) scaleX(1);
+}
+.wip-mobile__box-inner {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 232px;
+}
+.wip-mobile__box-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.wip-mobile__title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: all 0.3s;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.wip-mobile__title p {
+  display: inline-block;
+  position: relative;
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 35px;
+}
+.wip-mobile__title p:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  left: 50%;
+  background-color: #ffffff;
+  transition: transform 0.3s 0.3s;
+  transform: translateX(-50%) scaleX(0);
+}
+.wip-mobile__box-images {
+  display: none;
 }
 
 .page-work {

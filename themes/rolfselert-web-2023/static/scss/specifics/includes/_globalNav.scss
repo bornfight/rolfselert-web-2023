@@ -1,12 +1,13 @@
-/*-- 
+/*--
 Global Nav
 ----------------------------------------------*/
 .globalNav {
     font-family: 'Gotham SSm A', 'Gotham SSm B', "Helvetica Neue", Arial, sans-serif;
     font-weight: 200;
     font-style: normal;
-
+    padding-top: 70px;
     letter-spacing: 2.5px;
+    overflow: auto;
 
     // mobile styles
     position: fixed;
@@ -16,7 +17,8 @@ Global Nav
     width: 100%;
     top: 0;
     left: 0;
-    display: table;
+    display: flex;
+    flex-direction: column;
     @include transform(translate3d(0, -100%, 0));
     @include transition(all 1s cubic-bezier(0.19, 1, 0.22, 1));
     opacity: 0;
@@ -31,7 +33,7 @@ Global Nav
     @extend %clearfix;
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: auto;
     display: table-cell;
     vertical-align: middle;
     @include transform(translate3d(0, -75%, 0));
@@ -46,7 +48,7 @@ Global Nav
 
 .globalNav_item {
     list-style: none;
-    margin: 75px 0;
+    margin: 45px 0;
     padding: 0;
     text-align: center;
     font-size: 23px;
@@ -57,13 +59,61 @@ Global Nav
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 400;
+
+    &.is-hidden-desktop {
+        @include breakpoint(tablet-landscape) {
+            display: none;
+        }
+    }
+}
+
+.globalNav_contact {
+    list-style: none;
+    padding-left: 0;
+    position: relative;
+    padding-top: 45px;
+    padding-bottom: 20px;
+
+    &:before {
+        content: "";
+        width: 73px;
+        height: 4px;
+        background-color: white;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .iconContain {
+        max-width: 24px;
+    }
+
+    .contacts_item_text {
+        color: white;
+
+        p,
+        a {
+            letter-spacing: normal;
+        }
+
+        a {
+            color: inherit;
+        }
+    }
 }
 
 @include breakpoint(tablet-landscape) {
 
+    .globalNav_contact {
+        display: none;
+    }
+
     .globalNav_toggle {
         display: none;
     }
+
     .globalNav {
         opacity: 1;
         @include transform(translate3d(0, 0, 0));
@@ -76,6 +126,7 @@ Global Nav
         top: auto;
         left: auto;
         float: right;
+        padding-top: 0;
     }
 
     .globalNav_menu {

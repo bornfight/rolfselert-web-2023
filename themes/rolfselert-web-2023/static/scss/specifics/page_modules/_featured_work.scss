@@ -1,4 +1,4 @@
-/*-- 
+/*--
 Featured Work
 ----------------------------------------------*/
 .featured_work {
@@ -116,8 +116,10 @@ Featured Work
         font-family: 'Gotham SSm A', 'Gotham SSm B', "Helvetica Neue", Arial, sans-serif;
         font-weight: 500;
         font-size: 14px;
-        display: inline-flex;
+        display: flex;
+        width: 100%;
         align-items: center;
+        justify-content: center;
         float: right;
         letter-spacing: 0.1em;
 
@@ -171,6 +173,16 @@ Featured Work
             right: -2px;
             top: -2px;
             transform: rotate(45deg);
+        }
+    }
+}
+
+
+@include breakpoint(tablet-landscape) {
+    .featured-work {
+        &__link {
+            display: inline-flex;
+            width: auto;
         }
     }
 }

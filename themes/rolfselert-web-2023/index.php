@@ -130,13 +130,58 @@ if ( $use_work_in_progress_page ) {
                             break;
                         }
                     ?>
-                        <a href="<?= get_permalink( $progress_page ) ?>?id=<?= $key ?>" class="wip__box" data-pjax>
-                            <img src="<?= $project['hero'] ?>" alt="<?= $project['title'] ?>" class="wip__image"/>
-                            <span class="wip__title">
-                                <?= $project['title'] ?>
-                            </span>
-                        </a>
+                        <div class="wip__box" data-js-component="lightBox_new">
+                            <a class="wip__box-inner" data-js-component="lightBoxTrigger" data-trigger="<?= $project['title']; ?>">
+                                <img src="<?= $project['hero'] ?>" alt="<?= $project['title'] ?>" class="wip__image"/>
+                                <span class="wip__title">
+                                    <?= $project['title'] ?>
+                                </span>
+                            </a>
+                            <div class="wip__box-images">
+                                <?php foreach ($project['images'] as $image) { ?>
+                                    <div class="wip__box-image">
+                                        <a href="<?= $image['image'] ?>" class="img" data-lightbox="<?= $project['title']; ?>">
+                                            <img src="<?= $image['image'] ?>">
+                                        </a>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
                     <?php } ?>
+                </div>
+            </div>
+
+            <div class="wip-mobile">
+                <div class="embla wip-mobile__wrap" data-js-component="wipCarousel">
+                    <div class="embla__container">
+                        <?php
+                        foreach ( $projects as $key => $project ) {
+                            if ( $key > 4 ) {
+                                break;
+                            }
+                            ?>
+
+                            <div class="embla__slide wip-mobile__box" data-js-component="lightBox_new">
+                                <a class="wip-mobile__box-inner" data-js-component="lightBoxTrigger" data-trigger="<?= $project['title']; ?>">
+                                    <img src="<?= $project['hero'] ?>" alt="<?= $project['title'] ?>" class="wip-mobile__image"/>
+                                    <div class="wip-mobile__title">
+                                        <p>
+                                            <?= $project['title'] ?>
+                                        </p>
+                                    </div>
+                                </a>
+                                <div class="wip-mobile__box-images">
+                                    <?php foreach ($project['images'] as $image) { ?>
+                                        <div class="wip-mobile__box-image">
+                                            <a href="<?= $image['image'] ?>" class="img" data-lightbox="<?= $project['title']; ?>">
+                                                <img src="<?= $image['image'] ?>">
+                                            </a>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
                 </div>
             </div>
             <a href="<?= get_permalink( $progress_page ) ?>" class="wip__link">
