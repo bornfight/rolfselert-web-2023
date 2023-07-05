@@ -9,11 +9,13 @@ $prev = ( $cur - 1 ) < 1 ? false : intval( $cur - 1 );
 $next = ( $cur + 1 ) > $max ? false : intval( $cur + 1 );
 ?>
 <article id="page" class="page page--work">
+    <div class="pageInner">
+        <header class="moduleHeader">
+            <h2>Work</h2>
+        </header>
+    </div>
     <div class="contentWrapper" data-fade="in">
         <div class="page-work">
-            <header class="moduleHeader">
-                <h2>Work</h2>
-            </header>
             <div class="page-work__wrapper">
                 <?php foreach ( get_paged_projects( $_GET ) as $project ) { ?>
                     <?php $image = get_project_image( $project ) ?>

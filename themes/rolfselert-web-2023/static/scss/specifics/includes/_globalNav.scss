@@ -65,6 +65,14 @@ Global Nav
             display: none;
         }
     }
+
+    &.is-hidden-mobile {
+        display: none;
+
+        @include breakpoint(tablet-landscape) {
+            display: block;
+        }
+    }
 }
 
 .globalNav_contact {

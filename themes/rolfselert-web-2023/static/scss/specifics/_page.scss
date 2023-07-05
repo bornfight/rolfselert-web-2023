@@ -1,10 +1,10 @@
-/*-- 
+/*--
 Page
 ----------------------------------------------*/
 .page {
   position: relative;
   height: 100%;
-  
+
   overflow: hidden;
   background: #FFF;
   z-index: 4;
@@ -34,13 +34,13 @@ Page
   display: none;
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAwIDEwMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGcgaWQ9IlhNTElEXzI1XyI+PHBhdGggaWQ9IlhNTElEXzI4XyIgZmlsbD0iI0ZGRkZGRiIgZD0iTTUwLjEsNzYuNGMtMi4zLDAtNC41LTAuOS02LjMtMi42TDguMiwzOC4xbDYuNC02LjRsMzUuNiwzNS42bDM1LjYtMzUuNmw2LjQsNi40TDU2LjQsNzMuOEM1NC43LDc1LjUsNTIuNCw3Ni40LDUwLjEsNzYuNHoiLz48L2c+PC9zdmc+) no-repeat 50% 50%;
   background-size: 32px 32px;
-  
+
   position: absolute;
   bottom: 75px;
   left: 50%;
   margin-left: -15px;
   z-index: 5;
-  
+
   ._not_in_aspect & {
     display: block;
   }
@@ -103,7 +103,7 @@ Page
   @include breakpoint(tablet-landscape) {
     padding-top: 0;
     .pageHero{
-      display: block;  
+      display: block;
     }
   }
 }
@@ -116,10 +116,6 @@ Page
 }
 
 .page--work{
-  padding-top: 100px;
-  @include breakpoint(tablet-landscape) {
-    padding-top: 0;
-  }
 }
 
 .videoPopoutPlayer{
