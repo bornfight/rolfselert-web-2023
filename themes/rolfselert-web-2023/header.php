@@ -20,7 +20,7 @@
     <meta name="twitter:image" content="">
     <link rel="stylesheet" href="https://unpkg.com/slim-select@latest/dist/slimselect.css"/>
     <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6567652/634828/css/fonts.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/static/dist/style.css?v=1.14">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/static/dist/style.css?v=1.15">
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="https://unpkg.com/slim-select@latest/dist/slimselect.min.js"></script>
     <script type="text/javascript" src="//fast.fonts.net/jsapi/18489b80-5f8d-446b-836a-9c07dbe986b7.js"></script>
@@ -86,7 +86,7 @@
                 ?>
                 <ul class="globalNav_menu">
                     <li class="globalNav_item"><a href="<?= site_url(); ?>#about" class="globalNav_link is-hidden-desktop" data-pjax>About</a></li>
-                    <li class="globalNav_item"><a href="<?= get_permalink( $work_page ) ?>" class="globalNav_link is-hidden-desktop" data-pjax>Featured Work</a></li>
+                    <li class="globalNav_item"><a href="<?= get_permalink( $work_page ) ?>" class="globalNav_link is-hidden-desktop" data-pjax>Work</a></li>
                     <li class="globalNav_item"><a href="<?= get_permalink( $progress_page ) ?>" class="globalNav_link is-hidden-desktop" data-pjax>Work in progress</a></li>
                     <li class="globalNav_item"><a href="<?= site_url(); ?>#contact" class="globalNav_link is-hidden-mobile" data-pjax>Contact</a></li>
                 </ul>
