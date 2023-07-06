@@ -22,7 +22,7 @@
   </div>
   <!-- /.siteWrapper -->
 
-  <script src="<?php echo get_template_directory_uri(); ?>/static/dist/vendor.js?v=1.15"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/static/dist/bundle.js?v=1.15"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/static/dist/vendor.js?v=1.16"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/static/dist/bundle.js?v=1.16"></script>
 </body>
 </html>
