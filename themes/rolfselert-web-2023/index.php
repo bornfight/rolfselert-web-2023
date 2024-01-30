@@ -2,30 +2,30 @@
 get_header();
 
 // Page Hero
-$splash_video = get_field( 'splash_video', 'option' );
-$main_video   = get_field( 'main_video_vimeo_id', 'option' );
-$mp4_file     = $splash_video[0]['mp4_file'];
-$ogg_file     = $splash_video[0]['ogg_file'];
-$webm_file    = $splash_video[0]['webm_file'];
+$splash_video = get_field('splash_video', 'option');
+$main_video = get_field('main_video_vimeo_id', 'option');
+$mp4_file = $splash_video[0]['mp4_file'];
+$ogg_file = $splash_video[0]['ogg_file'];
+$webm_file = $splash_video[0]['webm_file'];
 $mobile_image = $splash_video[0]['mobile_image'];
 
 // Featured Work
-$featured_work = get_field( 'featured_work', 'option' );
+$featured_work = get_field('featured_work', 'option');
 
 // WIP module
-$use_work_in_progress_page = get_field( 'use_work_in_progress_page', 'option' ) ?? false;
-$projects                  = [];
-$progress_page             = '';
-$work_page                 = get_field( 'work_page', 'option' );
+$use_work_in_progress_page = get_field('use_work_in_progress_page', 'option') ?? false;
+$projects = [];
+$progress_page = '';
+$work_page = get_field('work_page', 'option');
 
-if ( $use_work_in_progress_page ) {
-    $progress_page = get_field( 'work_in_progress_page', 'option' );
-    $projects      = get_field( 'projects', $progress_page );
+if ($use_work_in_progress_page) {
+    $progress_page = get_field('work_in_progress_page', 'option');
+    $projects = get_field('projects', $progress_page);
 } else {
-	$work_in_progress_list = get_field( 'work_in_progress', 'option' );
+    $work_in_progress_list = get_field('work_in_progress', 'option');
 }
 ?>
-<article id="page" class="page page--home">
+<div id="page" class="page page--home">
     <div class="pageHero">
         <div class="pageHero_inner">
             <?php if (!isMobile()) : ?>
@@ -104,76 +104,46 @@ if ( $use_work_in_progress_page ) {
             </div>
 
             <!-- NEW SEE MORE BUTTON-->
-            <a href="<?= get_permalink( $work_page ) ?>" class="featured-work__link">
+            <a href="<?= get_permalink($work_page) ?>" class="featured-work__link">
                 <span>see all work</span>
                 <i class="featured-work__arrow"></i>
-<!--                <i class="featured-work__link-icon">-->
-<!--                    --><?php //= file_get_contents(get_template_directory() . '/img/arrow-right.svg'); ?>
-<!--                </i>-->
+                <!--                <i class="featured-work__link-icon">-->
+                <!--                    --><?php //= file_get_contents(get_template_directory() . '/img/arrow-right.svg'); ?>
+                <!--                </i>-->
             </a>
             <!-- END SEE MORE BUTTON-->
 
         </div>
     </div>
 
-    <?php if ( ! empty( $projects ) ) { ?>
+    <?php if (!empty($projects)) { ?>
         <div id="wip" class="page_module page_module--wip">
-        <div class="contentWrapper">
-            <header class="moduleHeader">
-                <h2>Work in progress</h2>
-            </header>
-            <div class="wip">
-                <div class="wip__wrap">
-                    <?php
-                    foreach ( $projects as $key => $project ) {
-                        if ( $key > 4 ) {
-                            break;
-                        }
-                    ?>
-                        <div class="wip__box" data-js-component="lightBox_new">
-                            <a class="wip__box-inner" data-js-component="lightBoxTrigger" data-trigger="<?= $project['title']; ?>">
-                                <img src="<?= $project['hero'] ?>" alt="<?= $project['title'] ?>" class="wip__image"/>
-                                <span class="wip__title">
-                                    <?= $project['title'] ?>
-                                </span>
-                            </a>
-                            <div class="wip__box-images">
-                                <?php foreach ($project['images'] as $image) { ?>
-                                    <div class="wip__box-image">
-                                        <a href="<?= $image['image'] ?>" class="img" data-lightbox="<?= $project['title']; ?>">
-                                            <img src="<?= $image['image'] ?>">
-                                        </a>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    <?php } ?>
-                </div>
-            </div>
-
-            <div class="wip-mobile">
-                <div class="embla wip-mobile__wrap" data-js-component="wipCarousel">
-                    <div class="embla__container">
+            <div class="contentWrapper">
+                <header class="moduleHeader">
+                    <h2>Work in progress</h2>
+                </header>
+                <div class="wip">
+                    <div class="wip__wrap">
                         <?php
-                        foreach ( $projects as $key => $project ) {
-                            if ( $key > 4 ) {
+                        foreach ($projects as $key => $project) {
+                            if ($key > 4) {
                                 break;
                             }
                             ?>
-
-                            <div class="embla__slide wip-mobile__box" data-js-component="lightBox_new">
-                                <a class="wip-mobile__box-inner" data-js-component="lightBoxTrigger" data-trigger="<?= $project['title']; ?>">
-                                    <img src="<?= $project['hero'] ?>" alt="<?= $project['title'] ?>" class="wip-mobile__image"/>
-                                    <div class="wip-mobile__title">
-                                        <p>
-                                            <?= $project['title'] ?>
-                                        </p>
-                                    </div>
+                            <div class="wip__box" data-js-component="lightBox_new">
+                                <a class="wip__box-inner" data-js-component="lightBoxTrigger"
+                                   data-trigger="<?= $project['title']; ?>">
+                                    <img src="<?= $project['hero'] ?>" alt="<?= $project['title'] ?>"
+                                         class="wip__image"/>
+                                    <span class="wip__title">
+                                    <?= $project['title'] ?>
+                                </span>
                                 </a>
-                                <div class="wip-mobile__box-images">
+                                <div class="wip__box-images">
                                     <?php foreach ($project['images'] as $image) { ?>
-                                        <div class="wip-mobile__box-image">
-                                            <a href="<?= $image['image'] ?>" class="img" data-lightbox="<?= $project['title']; ?>">
+                                        <div class="wip__box-image">
+                                            <a href="<?= $image['image'] ?>" class="img"
+                                               data-lightbox="<?= $project['title']; ?>">
                                                 <img src="<?= $image['image'] ?>">
                                             </a>
                                         </div>
@@ -183,16 +153,49 @@ if ( $use_work_in_progress_page ) {
                         <?php } ?>
                     </div>
                 </div>
+
+                <div class="wip-mobile">
+                    <div class="embla wip-mobile__wrap" data-js-component="wipCarousel">
+                        <div class="embla__container">
+                            <?php
+                            foreach ($projects as $key => $project) {
+                                if ($key > 4) {
+                                    break;
+                                }
+                                ?>
+
+                                <div class="embla__slide wip-mobile__box" data-js-component="lightBox_new">
+                                    <a class="wip-mobile__box-inner" data-js-component="lightBoxTrigger"
+                                       data-trigger="<?= $project['title']; ?>">
+                                        <img src="<?= $project['hero'] ?>" alt="<?= $project['title'] ?>"
+                                             class="wip-mobile__image"/>
+                                        <div class="wip-mobile__title">
+                                            <p>
+                                                <?= $project['title'] ?>
+                                            </p>
+                                        </div>
+                                    </a>
+                                    <div class="wip-mobile__box-images">
+                                        <?php foreach ($project['images'] as $image) { ?>
+                                            <div class="wip-mobile__box-image">
+                                                <a href="<?= $image['image'] ?>" class="img"
+                                                   data-lightbox="<?= $project['title']; ?>">
+                                                    <img src="<?= $image['image'] ?>">
+                                                </a>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+                <a href="<?= get_permalink($progress_page) ?>" class="wip__link">
+                    <span>see all work in progress</span>
+                    <i class="wip__arrow"></i>
+                </a>
             </div>
-            <a href="<?= get_permalink( $progress_page ) ?>" class="wip__link">
-                <span>see all work in progress</span>
-                <i class="wip__arrow"></i>
-                <!--                <i class="wip__link-icon">-->
-<!--                    --><?php //= file_get_contents(get_template_directory() . '/img/arrow-right.svg'); ?>
-<!--                </i>-->
-            </a>
         </div>
-    </div>
     <?php } ?>
 
     <?php
@@ -204,9 +207,6 @@ if ( $use_work_in_progress_page ) {
 
     <div id="about" class="page_module page_module--about">
         <div class="contentWrapper">
-            <!--      <header class="moduleHeader">-->
-            <!--        <h2>About</h2>-->
-            <!--      </header>-->
             <div class="about_text">
                 <?= $about_text; ?>
             </div>
@@ -301,5 +301,5 @@ if ( $use_work_in_progress_page ) {
             <?= $cta; ?>
         </div>
     </div>
-</article>
+</div>
 <?php get_footer(); ?>

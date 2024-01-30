@@ -1,141 +1,191 @@
 <?php get_header(); ?>
-<article id="page" class="page page--project">
-  <?php
+<div id="page" class="page page--project">
+    <?php
     /*
       The Loop
     */
-    if ( have_posts() ) :
-      while ( have_posts() ) :
-        the_post(); ?>
+    if (have_posts()) :
+    while (have_posts()) :
+    the_post(); ?>
 
-        <?php
-        /*
-          Page Hero
-        */
-
-        $hero = get_field( 'page_hero' );
-        $video = get_field( 'page_video' );
-
-        if ( empty( $video ) ) : ?>
-          <div class="pageHero">
+    <?php
+    /*
+      Page Hero
+    */
+    $hero = get_field('page_hero');
+    $video = get_field('page_video');
+    if (empty($video)) : ?>
+        <div class="pageHero">
             <div class="pageHero_inner">
 
                 <?php if (!empty($hero)) :
-                  $hero_image = $hero[0]['image']['sizes']['hero-image'];
-                ?>
-                <img src="<?= $hero_image; ?>"
-                     alt=""
-                     class="pageHero_image js--fadeImage"
-                     data-js-component="fadeImage" />
-              <?php endif; ?>
-            <a href="#" class="pageHero_more"></a>
-          </div>
+                    $hero_image = $hero[0]['image']['sizes']['hero-image'];
+                    ?>
+                    <img src="<?= $hero_image; ?>"
+                         alt=""
+                         class="pageHero_image js--fadeImage"
+                         data-js-component="fadeImage"/>
+                <?php endif; ?>
+                <a href="#" class="pageHero_more"></a>
+            </div>
         </div>
-
-
-        <?php
-        else: ?>
-
-          <div class="pageHero videoPopoutPlayer">
+    <?php
+    else: ?>
+        <div class="pageHero videoPopoutPlayer">
             <div class="pageHero_inner" data-js-component="videoPopoutPlayer" data-id="<?= $video[0]['video_id']; ?>">
-                <img class="popoutPlay" src="<?php echo get_template_directory_uri(); ?>/img/newPlay.svg" width="" height="" alt="" />
+                <img class="popoutPlay" src="<?php echo get_template_directory_uri(); ?>/img/newPlay.svg" width=""
+                     height="" alt=""/>
 
                 <video class="pageHero_video--splash js--heroVideo_splash js--videoPopoutPlayer" autoplay loop muted>
-                  <source src="<?= $video[0]['video']['url']; ?>" type="video/mp4" />
+                    <source src="<?= $video[0]['video']['url']; ?>" type="video/mp4"/>
                 </video>
 
                 <?php
-                  $hero_image = $hero[0]['image']['sizes']['hero-image'];
+                $hero_image = $hero[0]['image']['sizes']['hero-image'];
                 ?>
 
                 <img src="<?= $hero_image; ?>"
                      alt=""
                      class="pageHero_image js--fadeImage"
-                     data-js-component="fadeImage" />
+                     data-js-component="fadeImage"/>
 
 
                 <div class="pageHero_video_mask"></div>
             </div>
             <a href="#" class="pageHero_more"></a>
-          </div>
-
-        <?php
-        endif
-        ?>
-
-
-        <?php
-        /*
-          Page Header
-        */
-          $intro = get_field('intro_module');
-
-        ?>
-
-        <div class="introModule" data-js-component="introModule">
-          <div class="introModule_content">
-            <h1><?= $intro[0]['title']?></h1>
-            <div class="lead lead--large">
-              <?= $intro[0]['lead_large']?>
-            </div>
-            <div class="lead lead--small">
-              <?= $intro[0]['lead_small']?>
-            </div>
-          </div>
         </div>
 
+    <?php
+    endif
+    ?>
 
-        <!-- <header class="pageHeader">
-          <div class="contentWrapper">
+    <?php
+    /*
+      Page Header
+    */
+    $intro = get_field('intro_module');
 
-          </div>
-        </header> -->
-<?php
-        /*
-          Page Modules
-        */
-        $modules = get_field('page_modules');
-        $i = 0;
-        foreach ($modules as $module) :
-          $template = 'partials/page_modules-' . $module['acf_fc_layout'] . '.php';
-          $has_rule = isset( $modules[ $i + 1]['acf_fc_layout'] ) && ( $modules[ $i + 1]['acf_fc_layout'] == 'horizontal_rule');
-          if ( file_exists(dirname(__FILE__) . '/'. $template) ) :
+    ?>
 
-echo '<!-- =============== ' . $module['acf_fc_layout'] . ' =============== -->
-';
-?>
-          <div class="page_module page_module--<?= $module['acf_fc_layout']; ?><?php if ($has_rule) :?> page_module--rule<?php endif;?><?php if ($module['acf_fc_layout'] == 'quote') :?> page_module--alt<?php endif;?>">
-            <div class="contentWrapper">
-              <?php include ($template); ?>
+    <div class="introModule" data-js-component="introModule">
+        <div class="introModule_content">
+            <h1><?= $intro[0]['title'] ?></h1>
+            <div class="lead lead--large">
+                <?= $intro[0]['lead_large'] ?>
             </div>
-          </div>
+            <div class="lead lead--small">
+                <?= $intro[0]['lead_small'] ?>
+            </div>
+        </div>
+    </div>
+
+    <!-- <header class="pageHeader">
+      <div class="contentWrapper">
+      </div>
+    </header> -->
+    <?php
+    /*
+      Page Modules
+    */
+    $modules = get_field('page_modules');
+    $i = 0;
+    foreach ($modules as $module) :
+        $template = 'partials/page_modules-' . $module['acf_fc_layout'] . '.php';
+        $has_rule = isset($modules[$i + 1]['acf_fc_layout']) && ($modules[$i + 1]['acf_fc_layout'] == 'horizontal_rule');
+        if (file_exists(dirname(__FILE__) . '/' . $template)) :
+
+            echo '<!-- =============== ' . $module['acf_fc_layout'] . ' =============== -->
+';
+            ?>
+            <div class="page_module page_module--<?= $module['acf_fc_layout']; ?><?php if ($has_rule) : ?> page_module--rule<?php endif; ?><?php if ($module['acf_fc_layout'] == 'quote') : ?> page_module--alt<?php endif; ?>">
+                <div class="contentWrapper">
+                    <?php include($template); ?>
+                </div>
+            </div>
 
         <?php
-          endif;
-          $i++;
-        endforeach;
-      ?>
+        endif;
+        $i++;
+    endforeach;
+    ?>
 
-</article>
 
-<div class="popout_overlay">
-  <div class="popout_container">
-  <div class="video_popout">
-    <iframe src="https://player.vimeo.com/video/<?= $video[0]['video_id']; ?>"
-                     id="heroVideo_main"
-                     class="videoWrapper_video singlePage_video"
-                     frameborder="0"
-                      width="560" height="349"
-                     webkitallowfullscreen
-                     mozallowfullscreen
-                     allowfullscreen>
-    </iframe>
-  </div>
-  </div>
+
+    <?php
+    /*
+      Contacts
+    */
+    $contacts = get_field('contacts', 'option');
+    ?>
+    <div id="contact" class="page_module page_module--cto">
+        <div class="contentWrapper">
+            <header class="moduleHeader">
+                <h2>Contact</h2>
+            </header>
+            <div class="contact">
+                <?php
+                foreach ($contacts as $contact) :
+                    $image = $contact['icon']['url'];
+                    $type = '';
+
+                    if ($contact['contact_info'][0]['type'] === 'contact_email: Email Link') {
+                        $linkAtrib = 'mailto:' . $contact['contact_info'][0]['link'];
+                    } else if ($contact['contact_info'][0]['type'] === 'contact_phone: Phone Number') {
+                        $linkAtrib = 'tel:' . $contact['contact_info'][0]['link'];
+                    } else {
+                        $linkAtrib = $contact['contact_info'][0]['link'];
+                    }
+
+                    ?>
+                    <div class="contacts_item" data-fade="up" data-delay-buffer="150" class="">
+                        <a href="<?= $linkAtrib ?>">
+                            <div class="iconContain">
+                                <img src="<?= $image; ?>" alt="" class="contacts_icon"/>
+                            </div>
+                            <div class="contacts_item_text">
+                                <?= $contact['text']; ?>
+                            </div>
+                        </a>
+                    </div>
+                <?php
+                endforeach;
+                ?>
+            </div>
+        </div>
+    </div>
+
+    <?php
+    /*
+      Call to Action
+    */
+    $cta = get_field('cta', 'option');
+    ?>
+    <div class="page_module page_module--cta page_module--alt">
+        <div class="cta_text" data-fade="true">
+            <?= $cta; ?>
+        </div>
+    </div>
+
 </div>
 
-  <?php
-      endwhile;
-    endif;
-  ?>
+    <div class="popout_overlay">
+        <div class="popout_container">
+            <div class="video_popout">
+                <iframe src="https://player.vimeo.com/video/<?= $video[0]['video_id']; ?>"
+                        id="heroVideo_main"
+                        class="videoWrapper_video singlePage_video"
+                        frameborder="0"
+                        width="560" height="349"
+                        webkitallowfullscreen
+                        mozallowfullscreen
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+<?php
+endwhile;
+endif;
+?>
 <?php get_footer(); ?>

@@ -10,7 +10,6 @@
     <meta property="og:title" content="Rolfs Elert Office">
     <meta property="og:description" content="undefined">
     <meta property="og:image" content="">
-
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="rolfselert-web-2023-staging.bwp.zone">
@@ -27,15 +26,15 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-58821205-1"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
 
-        gtag('js', new Date());
+      gtag('js', new Date());
 
-        gtag('config', 'UA-58821205-1');
+      gtag('config', 'UA-58821205-1');
     </script>
     <?php wp_head(); ?>
 </head>
@@ -53,7 +52,6 @@
                 </a>
                 <nav class="globalNav">
                     <ul class="globalNav_menu">
-                        </li>
                         <li class="globalNav_item"><a href="<?= site_url(); ?>#contact" class="globalNav_link"
                                                       data-pjax>Contact</a></li>
                     </ul>
@@ -68,7 +66,7 @@
         </div>
     </div>
 
-    <header class="globalHeader <?= is_page("In Progress") || is_post_type_archive( 'project' ) ? "globalHeader--dark" : "" ?>">
+    <header class="globalHeader <?= is_page("In Progress") || is_post_type_archive('project') ? "globalHeader--dark" : "" ?>">
         <i></i>
         <div class="contentWrapper">
             <a href="<?= site_url(); ?>" class="home_link logo" data-pjax>
@@ -79,11 +77,13 @@
             </a>
             <nav class="globalNav">
                 <ul class="globalNav_menu">
-                    <li class="globalNav_item"><a href="<?= site_url(); ?>#work" class="globalNav_link is-hidden-desktop"
-                                                  data-pjax>Work</a></li>
-                    <li class="globalNav_item"><a href="<?= site_url(); ?>#about" class="globalNav_link is-hidden-desktop"
+                    <li class="globalNav_item"><a href="<?= site_url(); ?>#about"
+                                                  class="globalNav_link is-hidden-desktop"
                                                   data-pjax>About</a></li>
-                    <li class="globalNav_item"><a href="<?= site_url(); ?>#contact" class="globalNav_link" data-pjax>Contact</a>
+                    <li class="globalNav_item"><a href="<?= site_url(); ?>#work"
+                                                  class="globalNav_link is-hidden-desktop"
+                                                  data-pjax>Work</a></li>
+                    <li class="globalNav_item"><a href="<?= site_url(); ?>#wip" class="globalNav_link" data-pjax>Work in progress</a>
                     </li>
                 </ul>
                 <ul class="globalNav_contact contact">

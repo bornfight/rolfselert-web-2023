@@ -326,11 +326,11 @@ var Index = Index || {};
 
         $('.globalNav_toggle').on('click', function() {
             $body.toggleClass('_nav_open');
-            $('.pageHero_video_mask').trigger('click');
+            // $('.pageHero_video_mask').trigger('click');
         });
         $('.globalNav_link').on('click', function() {
             $body.toggleClass('_nav_open');
-            $('.pageHero_video_mask').trigger('click');
+            // $('.pageHero_video_mask').trigger('click');
         });
 
         // Page Loaded for the first time
