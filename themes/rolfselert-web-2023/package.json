@@ -27,6 +27,7 @@
         "eslint": "^8.37.0",
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-prettier": "^4.2.1",
+        "grunt": "^0.4.5",
         "husky": "^8.0.3",
         "mini-css-extract-plugin": "^2.7.5",
         "poly-fluid-sizing": "github:bornfight/poly-fluid-sizing",
@@ -42,9 +43,17 @@
         "stylelint-scss": "^4.6.0",
         "webpack": "^5.76.1",
         "webpack-cli": "^5.0.1",
-        "webpack-remove-empty-scripts": "^1.0.1"
-    },
-    "dependencies": {
+        "webpack-remove-empty-scripts": "^1.0.1",
+        "grunt-asset-cachebuster": "^0.3.1",
+        "grunt-combine-media-queries": "^1.0.19",
+        "grunt-contrib-concat": "^0.5.0",
+        "grunt-contrib-connect": "^3.0.0",
+        "grunt-contrib-cssmin": "^0.10.0",
+        "grunt-contrib-sass": "^0.7.3",
+        "grunt-contrib-uglify": "^0.5.0",
+        "grunt-contrib-watch": "^0.6.1",
+        "grunt-criticalcss": "^0.6.0",
+        "grunt-exec": "^0.4.6"
     },
     "engines": {
         "node": "16.x",

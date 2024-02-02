@@ -2,7 +2,7 @@
 Global Header
 ----------------------------------------------*/
 .globalHeader {
-    position: absolute;
+    //position: absolute;
     z-index: 5;
     color: $color-default-white;
     top: 0;
@@ -11,6 +11,7 @@ Global Header
     background: white;
     position: fixed;
     height: 70px;
+    left: 0;
 
     > i {
         display: none;
@@ -22,12 +23,18 @@ Global Header
         height: 70px;
         z-index: 4;
         background-color: #000;
+
+        ._nav_open & {
+            @include breakpoint(tablet-landscape) {
+                height: 153px;
+            }
+        }
     }
 
     ._nav_open & {
 
         > i {
-            display: block;
+            //display: block;
         }
     }
 
@@ -78,14 +85,19 @@ Global Header
         position: absolute;
         background: none;
         height: auto;
+
         &:after {
             display: none;
         }
         &:before {
             display: block
         }
-    }
 
+        ._nav_open & {
+            height: 153px;
+            position: fixed;
+        }
+    }
 }
 
 .logo {
@@ -98,6 +110,7 @@ Global Header
     top: -25px;
 
     > * {
+        display: block;
         width: 100%;
     }
 
@@ -189,6 +202,12 @@ Global Header
 
     @include breakpoint(tablet-landscape) {
         display: block;
+    }
+
+    ._nav_open & {
+        @include breakpoint(tablet-landscape) {
+            display: none;
+        }
     }
 }
 

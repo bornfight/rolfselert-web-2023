@@ -2,7 +2,7 @@
 Global Nav
 ----------------------------------------------*/
 .globalNav {
-    font-family: 'Gotham SSm A', 'Gotham SSm B', "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Helvetica Neue', 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif;
     font-weight: 200;
     font-style: normal;
     padding-top: 70px;
@@ -26,6 +26,10 @@ Global Nav
     ._nav_open & {
         opacity: 1;
         @include transform(translate3d(0, 0, 0));
+
+        @include breakpoint(tablet-landscape) {
+            padding-top: 153px;
+        }
     }
 }
 
@@ -39,6 +43,10 @@ Global Nav
     @include transform(translate3d(0, -75%, 0));
     @include transition(all 1s cubic-bezier(0.19, 1, 0.22, 1));
     opacity: 0;
+
+    @include breakpoint(tablet-landscape) {
+        padding-bottom: 10px;
+    }
 
     ._nav_open & {
         opacity: 1;
@@ -72,6 +80,24 @@ Global Nav
         @include breakpoint(tablet-landscape) {
             display: block;
         }
+    }
+}
+
+.globalNav_contactWrapper {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    @extend %clearfix;
+    max-width: 1256px;
+    padding: 0 16px;
+
+    @include breakpoint(tablet-landscape) {
+        max-width: 1320px;
+        padding: 0 32px;
+    }
+    @include breakpoint(large-screen) {
+        max-width: 1256px;
+        padding: 0;
     }
 }
 
@@ -114,7 +140,7 @@ Global Nav
 
 @include breakpoint(tablet-landscape) {
 
-    .globalNav_contact {
+   /* .globalNav_contact {
         display: none;
     }
 
@@ -147,7 +173,7 @@ Global Nav
         margin: 0;
         float: left;
         margin-left: 25px;
-    }
+    }*/
 }
 
 @include keyframes(nav-open) {
