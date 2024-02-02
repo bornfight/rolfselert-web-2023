@@ -1,4 +1,4 @@
-/*-- 
+/*--
 Awards
 ----------------------------------------------*/
 .awards {
@@ -8,7 +8,7 @@ Awards
 .award {
 	h2 {
 		-webkit-font-smoothing: antialiased;
-		font-family: 'Gotham SSm A','Gotham SSm B',"Helvetica Neue",Arial,sans-serif;
+		font-family: 'Helvetica Neue', 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif;
 		font-size: 18px;
 		font-weight: 700;
 		line-height: 1.67;
@@ -82,7 +82,7 @@ Awards
 		margin-bottom: 16px;
 		width: auto;
 	}
-	
+
 	.awards--centered {
 		h2 {
 			text-align: center;

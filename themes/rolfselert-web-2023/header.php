@@ -78,46 +78,48 @@
             <nav class="globalNav">
                 <ul class="globalNav_menu">
                     <li class="globalNav_item"><a href="<?= site_url(); ?>#about"
-                                                  class="globalNav_link is-hidden-desktop"
+                                                  class="globalNav_link"
                                                   data-pjax>About</a></li>
                     <li class="globalNav_item"><a href="<?= site_url(); ?>#work"
-                                                  class="globalNav_link is-hidden-desktop"
+                                                  class="globalNav_link"
                                                   data-pjax>Work</a></li>
                     <li class="globalNav_item"><a href="<?= site_url(); ?>#wip" class="globalNav_link" data-pjax>Work in progress</a>
                     </li>
                 </ul>
-                <ul class="globalNav_contact contact">
-                    <?php
-                    $contacts = get_field('contacts', 'option');
+                <div class="globalNav_contactWrapper">
+                    <ul class="globalNav_contact contact">
+                        <?php
+                        $contacts = get_field('contacts', 'option');
 
-                    foreach ($contacts as $contact) :
-                        $image = $contact['icon']['url'];
-                        $type = '';
+                        foreach ($contacts as $contact) :
+                            $image = $contact['icon']['url'];
+                            $type = '';
 
-                        if ($contact['contact_info'][0]['type'] === 'contact_email: Email Link') {
-                            $linkAtrib = 'mailto:' . $contact['contact_info'][0]['link'];
-                        } else if ($contact['contact_info'][0]['type'] === 'contact_phone: Phone Number') {
-                            $linkAtrib = 'tel:' . $contact['contact_info'][0]['link'];
-                        } else {
-                            $linkAtrib = $contact['contact_info'][0]['link'];
-                        }
+                            if ($contact['contact_info'][0]['type'] === 'contact_email: Email Link') {
+                                $linkAtrib = 'mailto:' . $contact['contact_info'][0]['link'];
+                            } else if ($contact['contact_info'][0]['type'] === 'contact_phone: Phone Number') {
+                                $linkAtrib = 'tel:' . $contact['contact_info'][0]['link'];
+                            } else {
+                                $linkAtrib = $contact['contact_info'][0]['link'];
+                            }
 
+                            ?>
+
+                            <li class="contacts_item" data-fade="up" data-delay-buffer="150" class="">
+                                <a href="<?= $linkAtrib ?>">
+                                    <div class="iconContain">
+                                        <img src="<?= $image; ?>" alt="" class="contacts_icon"/>
+                                    </div>
+                                    <div class="contacts_item_text">
+                                        <?= $contact['text']; ?>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php
+                        endforeach;
                         ?>
-
-                        <li class="contacts_item" data-fade="up" data-delay-buffer="150" class="">
-                            <a href="<?= $linkAtrib ?>">
-                                <div class="iconContain">
-                                    <img src="<?= $image; ?>" alt="" class="contacts_icon"/>
-                                </div>
-                                <div class="contacts_item_text">
-                                    <?= $contact['text']; ?>
-                                </div>
-                            </a>
-                        </li>
-                    <?php
-                    endforeach;
-                    ?>
-                </ul>
+                    </ul>
+                </div>
             </nav>
             <div class="globalNav_toggle">
                 <span></span>

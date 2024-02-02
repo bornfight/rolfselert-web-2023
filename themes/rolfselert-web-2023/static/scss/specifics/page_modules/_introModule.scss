@@ -51,14 +51,14 @@
 
 	h1 {
 		-webkit-font-smoothing: antialiased;
-		font-family: 'Gotham SSm A','Gotham SSm B',"Helvetica Neue",Arial,sans-serif;
-		font-weight: 500;
+		font-family: 'Helvetica Neue', 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif;
+		//font-weight: 500;
 		font-size: 18px;
 		font-weight: bold;
 		line-height: 1.67;
 		letter-spacing: 2px;
 		text-align: center;
-		
+
 		&:after {
 			content: '';
 			display: block;
@@ -78,7 +78,7 @@
 		font-size: 20px;
 		color: #393939;
 		p{
-			font-family: "PMNCaeciliaW01-45Light", "Georgia", Times, serif;	
+			font-family: "PMNCaeciliaW01-45Light", "Georgia", Times, serif;
 		}
 
 		@include breakpoint('desktop'){

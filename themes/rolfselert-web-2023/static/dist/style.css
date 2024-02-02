@@ -391,7 +391,7 @@ th {
 
 /* Base
    ========================================================================== */
-.text_media:before, .partners_item:before, .partners:before, .image_grid:before, .featured_work:before, .featured_awards:before, .contact:before, .cluster_item--image_quote:before, .cluster_item--quote:before, .cluster:before, .awards:before, .globalNav_menu:before, .contentWrapper:before,
+.text_media:before, .partners_item:before, .partners:before, .image_grid:before, .featured_work:before, .featured_awards:before, .contact:before, .cluster_item--image_quote:before, .cluster_item--quote:before, .cluster:before, .awards:before, .globalNav_contactWrapper:before, .globalNav_menu:before, .contentWrapper:before,
 .text_media:after,
 .partners_item:after,
 .partners:after,
@@ -403,13 +403,14 @@ th {
 .cluster_item--quote:after,
 .cluster:after,
 .awards:after,
+.globalNav_contactWrapper:after,
 .globalNav_menu:after,
 .contentWrapper:after {
   content: " "; /* 1 */
   display: table; /* 2 */
 }
 
-.text_media:after, .partners_item:after, .partners:after, .image_grid:after, .featured_work:after, .featured_awards:after, .contact:after, .cluster_item--image_quote:after, .cluster_item--quote:after, .cluster:after, .awards:after, .globalNav_menu:after, .contentWrapper:after {
+.text_media:after, .partners_item:after, .partners:after, .image_grid:after, .featured_work:after, .featured_awards:after, .contact:after, .cluster_item--image_quote:after, .cluster_item--quote:after, .cluster:after, .awards:after, .globalNav_contactWrapper:after, .globalNav_menu:after, .contentWrapper:after {
   clear: both;
 }
 
@@ -493,7 +494,7 @@ a {
 
 /*-- Links --*/
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-weight: 500;
   font-style: normal;
 }
@@ -1008,7 +1009,6 @@ Page
 Global Header
 ----------------------------------------------*/
 .globalHeader {
-  position: absolute;
   z-index: 5;
   color: #FFF;
   top: 0;
@@ -1017,6 +1017,7 @@ Global Header
   background: white;
   position: fixed;
   height: 70px;
+  left: 0;
 }
 .globalHeader > i {
   display: none;
@@ -1029,8 +1030,10 @@ Global Header
   z-index: 4;
   background-color: #000;
 }
-._nav_open .globalHeader > i {
-  display: block;
+@media (min-width: 769px) {
+  ._nav_open .globalHeader > i {
+    height: 153px;
+  }
 }
 .globalHeader:before {
   display: none;
@@ -1082,6 +1085,10 @@ Global Header
   .globalHeader:before {
     display: block;
   }
+  ._nav_open .globalHeader {
+    height: 153px;
+    position: fixed;
+  }
 }
 
 .logo {
@@ -1097,6 +1104,7 @@ Global Header
   transition: opacity 0.25s linear;
 }
 .logo > * {
+  display: block;
   width: 100%;
 }
 .logo g {
@@ -1180,6 +1188,11 @@ Global Header
     display: block;
   }
 }
+@media (min-width: 769px) {
+  ._nav_open .stickyHeader {
+    display: none;
+  }
+}
 
 .stickyHeader.is_visible {
   top: 0;
@@ -1202,7 +1215,7 @@ Global Header
 Global Nav
 ----------------------------------------------*/
 .globalNav {
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-weight: 200;
   font-style: normal;
   padding-top: 70px;
@@ -1235,6 +1248,11 @@ Global Nav
   -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+@media (min-width: 769px) {
+  ._nav_open .globalNav {
+    padding-top: 153px;
+  }
+}
 
 .globalNav_menu {
   margin: 0;
@@ -1251,6 +1269,11 @@ Global Nav
   -moz-transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
   opacity: 0;
+}
+@media (min-width: 769px) {
+  .globalNav_menu {
+    padding-bottom: 10px;
+  }
 }
 ._nav_open .globalNav_menu {
   opacity: 1;
@@ -1278,6 +1301,26 @@ Global Nav
 @media (min-width: 769px) {
   .globalNav_link.is-hidden-desktop {
     display: none;
+  }
+}
+
+.globalNav_contactWrapper {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  max-width: 1256px;
+  padding: 0 16px;
+}
+@media (min-width: 769px) {
+  .globalNav_contactWrapper {
+    max-width: 1320px;
+    padding: 0 32px;
+  }
+}
+@media (min-width: 1321px) {
+  .globalNav_contactWrapper {
+    max-width: 1256px;
+    padding: 0;
   }
 }
 
@@ -1314,45 +1357,40 @@ Global Nav
 }
 
 @media (min-width: 769px) {
-  .globalNav_contact {
-    display: none;
-  }
-  .globalNav_toggle {
-    display: none;
-  }
-  .globalNav {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    margin-top: 65px;
-    display: block;
-    position: relative;
-    background: transparent;
-    height: auto;
-    width: auto;
-    top: auto;
-    left: auto;
-    float: right;
-    padding-top: 0;
-  }
-  .globalNav_menu {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    float: right;
-  }
-  .globalNav_item {
-    font-size: 14px;
-    margin: 0;
-    float: left;
-    margin-left: 25px;
-  }
+  /* .globalNav_contact {
+       display: none;
+   }
+
+   .globalNav_toggle {
+       display: none;
+   }
+
+   .globalNav {
+       opacity: 1;
+       @include transform(translate3d(0, 0, 0));
+       margin-top: 65px;
+       display: block;
+       position: relative;
+       background: transparent;
+       height: auto;
+       width: auto;
+       top: auto;
+       left: auto;
+       float: right;
+       padding-top: 0;
+   }
+
+   .globalNav_menu {
+       opacity: 1;
+       @include transform(translate3d(0, 0, 0));
+       float: right;
+   }
+   .globalNav_item {
+       font-size: 14px;
+       margin: 0;
+       float: left;
+       margin-left: 25px;
+   }*/
 }
 @-webkit-keyframes nav-open {
   100% {
@@ -1393,13 +1431,21 @@ Global Nav Toggle
   -moz-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
+@media (min-width: 769px) {
+  .globalNav_toggle {
+    margin-top: 65px;
+  }
+}
+.stickyHeader .globalNav_toggle {
+  margin-top: 36px;
+}
 
 .globalNav_toggle span {
   display: block;
   position: absolute;
   height: 2px;
   width: 100%;
-  background: #272727;
+  background-color: #4A4A4A;
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);
@@ -1412,11 +1458,20 @@ Global Nav Toggle
   transition: 0.25s ease-in-out;
 }
 ._nav_open .globalNav_toggle span {
-  background: #ffffff;
+  background-color: #ffffff;
+}
+.is_visible .globalNav_toggle span {
+  background-color: #4A4A4A;
+}
+@media (min-width: 769px) {
+  .globalNav_toggle span {
+    background: #ffffff;
+  }
 }
 
 .globalNav_toggle span:nth-child(1) {
   top: 0px;
+  width: 70%;
 }
 
 .globalNav_toggle span:nth-child(2),
@@ -1426,6 +1481,7 @@ Global Nav Toggle
 
 .globalNav_toggle span:nth-child(4) {
   top: 20px;
+  width: 50%;
 }
 
 ._nav_open .globalNav_toggle span:nth-child(1) {
@@ -1451,7 +1507,7 @@ Global Nav Toggle
   left: 50%;
 }
 
-/*-- 
+/*--
 Global Footer
 ----------------------------------------------*/
 .globalFooter {
@@ -1465,7 +1521,7 @@ Global Footer
   }
 }
 .globalFooter .copyright {
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
@@ -1570,12 +1626,12 @@ About
   }
 }
 
-/*-- 
+/*--
 Awards
 ----------------------------------------------*/
 .award h2 {
   -webkit-font-smoothing: antialiased;
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.67;
@@ -1776,13 +1832,12 @@ Cluster
   overflow: auto;
 }
 
-/*-- 
+/*--
 Contact
 ----------------------------------------------*/
 .contact h2 {
   -webkit-font-smoothing: antialiased;
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
-  font-weight: 500;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-size: 18px;
   font-weight: bold;
   line-height: 1.67;
@@ -1800,8 +1855,7 @@ Contact
 
 #contact h2 {
   -webkit-font-smoothing: antialiased;
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
-  font-weight: 500;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-size: 18px;
   font-weight: bold;
   line-height: 1.67;
@@ -1848,9 +1902,6 @@ Contact
 .contacts_item:last-child {
   margin-bottom: 0;
 }
-.contacts_item:hover a {
-  color: #0112ff;
-}
 @media (min-width: 601px) {
   .contacts_item {
     margin: 0;
@@ -1870,11 +1921,17 @@ Contact
 }
 
 .contacts_item_text {
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
   line-height: 20px;
+}
+@media (min-width: 769px) {
+  .contacts_item_text {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 .contacts_item_text p {
   margin: 0;
@@ -1884,7 +1941,6 @@ Contact
   color: #4A4A4A;
   text-decoration: none;
 }
-
 /*--
 CTA
 ----------------------------------------------*/
@@ -1898,7 +1954,7 @@ CTA
 .cta_text {
   color: #FFF;
   text-align: center;
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
   letter-spacing: -0.02em;
@@ -2059,7 +2115,7 @@ Featured Work
 .featured-work__link {
   text-transform: uppercase;
   text-decoration: none;
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-weight: 500;
   font-size: 14px;
   display: flex;
@@ -2311,8 +2367,7 @@ Text and Media
 }
 .introModule_content h1 {
   -webkit-font-smoothing: antialiased;
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
-  font-weight: 500;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-size: 18px;
   font-weight: bold;
   line-height: 1.67;
@@ -2636,7 +2691,7 @@ body.lb-disable-scrolling {
   padding-bottom: 1em;
   font-size: 12px;
   color: #ffffff;
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
 }
 
 .lb-data .lb-close {
@@ -2776,7 +2831,7 @@ WIP
   color: white;
   font-size: 16px;
   text-transform: uppercase;
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-align: center;
@@ -2813,7 +2868,7 @@ WIP
   text-transform: uppercase;
   text-decoration: none;
   color: #4A4A4A;
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-weight: 500;
   font-size: 14px;
   width: 100%;
@@ -2937,7 +2992,7 @@ WIP
   color: white;
   font-size: 16px;
   text-transform: uppercase;
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-align: center;
@@ -3022,7 +3077,7 @@ WIP
   color: white;
   font-size: 16px;
   text-transform: uppercase;
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-align: center;
@@ -3120,7 +3175,7 @@ WIP
   transition: background-color 0.3s ease-in-out;
   font-size: 14px;
   line-height: normal;
-  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
 }
 .page-work__number a {
   color: #4A4A4A;
