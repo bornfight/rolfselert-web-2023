@@ -5,8 +5,6 @@ get_header();
 $splash_video = get_field('splash_video', 'option');
 $main_video = get_field('main_video_vimeo_id', 'option');
 $mp4_file = $splash_video[0]['mp4_file'];
-$ogg_file = $splash_video[0]['ogg_file'];
-$webm_file = $splash_video[0]['webm_file'];
 $mobile_image = $splash_video[0]['mobile_image'];
 
 // Featured Work
@@ -32,17 +30,11 @@ if ($use_work_in_progress_page) {
                 <div class="pageHero_video"<?php if (!empty($main_video)) : ?> data-js-component="heroVideo"<?php endif; ?>>
                     <div class="pageHero_video_inner">
 
+                        <?php if (!empty($mp4_file)) : ?>
                         <video class="pageHero_video--splash js--heroVideo_splash" autoplay loop muted>
-                            <?php if (!empty($mp4_file)) : ?>
                                 <source src="<?= $mp4_file['url']; ?>" type="video/mp4"/>
-                            <?php endif; ?>
-                            <?php if (!empty($ogg_file)) : ?>
-                                <source src="<?= $ogg_file['url']; ?>" type="video/ogg"/>
-                            <?php endif; ?>
-                            <?php if (!empty($webm_file)) : ?>
-                                <source src="<?= $webm_file['url']; ?>" type="video/webm"/>
-                            <?php endif; ?>
                         </video>
+                        <?php endif; ?>
                         <div class="pageHero_video_mask"></div>
 
                         <?php if (!empty($main_video)) : ?>
@@ -63,7 +55,7 @@ if ($use_work_in_progress_page) {
                     </div>
                 </div>
             <?php else : ?>
-                <?php if (!empty($webm_file)) : ?>
+                <?php if (!empty($mp4_file)) : ?>
                     <img src="<?= $mobile_image['sizes']['hero-image']; ?>"
                          alt=""
                          class="pageHero_image js--fadeImage"

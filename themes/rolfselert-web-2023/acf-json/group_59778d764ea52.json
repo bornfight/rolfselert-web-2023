@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_59778d8651bfb",
-            "label": "projects",
+            "label": "Projects",
             "name": "projects",
             "aria-label": "",
             "type": "repeater",
@@ -110,7 +110,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "block",
+                    "layout": "row",
                     "min": 0,
                     "max": 0,
                     "collapsed": "",
@@ -167,5 +167,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1682684637
+    "modified": 1707376951
 }
