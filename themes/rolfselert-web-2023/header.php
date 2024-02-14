@@ -80,10 +80,10 @@
                     <li class="globalNav_item"><a href="<?= site_url(); ?>#about"
                                                   class="globalNav_link"
                                                   data-pjax>About</a></li>
-                    <li class="globalNav_item"><a href="<?= site_url(); ?>#work"
+                    <li class="globalNav_item"><a href="/work/"
                                                   class="globalNav_link"
                                                   data-pjax>Work</a></li>
-                    <li class="globalNav_item"><a href="<?= site_url(); ?>#wip" class="globalNav_link" data-pjax>Work in progress</a>
+                    <li class="globalNav_item"><a href="/in-progress/" class="globalNav_link" data-pjax>Work in progress</a>
                     </li>
                 </ul>
                 <div class="globalNav_contactWrapper">

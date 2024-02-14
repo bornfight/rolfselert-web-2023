@@ -10,7 +10,7 @@ $next = ($cur + 1) > $max ? false : intval($cur + 1);
 ?>
 <div id="page" class="page page--work">
     <div class="contentWrapper" data-fade="in">
-        <div class="page-work">
+        <div class="pageInner page-work">
             <header class="moduleHeader">
                 <h2>Work</h2>
             </header>
@@ -60,6 +60,8 @@ $next = ($cur + 1) > $max ? false : intval($cur + 1);
       Contacts
     */
     $contacts = get_field('contacts', 'option');
+    if(FALSE):
+    // removed but not deleted
     ?>
     <div id="contact" class="page_module page_module--cto">
         <div class="contentWrapper">
@@ -97,8 +99,8 @@ $next = ($cur + 1) > $max ? false : intval($cur + 1);
             </div>
         </div>
     </div>
-
     <?php
+    endif;
     /*
       Call to Action
     */

@@ -2,7 +2,7 @@
     @include breakpoint('tablet-portrait') {
         display: flex;
         flex-wrap: wrap;
-        padding: 0 30px;
+        //padding: 0 30px;
     }
 }
 
@@ -73,17 +73,18 @@
 }
 
 .pageInner {
-    max-width: 1320px;
-    padding: 0 32px;
-    padding-top: 200px;
+    //max-width: 1320px;
+    //padding: 0 32px;
+    max-width: 100%;
+    padding-top: 100px;
     margin: 0 auto;
 
     header {
-        margin-bottom: 70px;
+        //margin-bottom: 70px;
     }
 
     h2 {
-        &:after {
+        /*&:after {
             content: '';
             width: 64px;
             height: 4px;
@@ -92,8 +93,7 @@
             display: block;
             margin: 0 auto;
             margin-top: 40px;
-
-        }
+        }*/
     }
 }
 

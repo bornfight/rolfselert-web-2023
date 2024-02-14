@@ -4,52 +4,55 @@ get_header();
 $projects = get_field('projects');
 ?>
 <div id="page" class="page page--progress">
+    <div class="contentWrapper" data-fade="in">
 
-    <div class="pageInner">
-        <header class="moduleHeader">
-            <h2>In Progress</h2>
-        </header>
-        <div class="blockCollection">
-            <?php foreach ($projects as $key => $project) { ?>
-                <div class="projectBlock">
-                    <div class="projectBlock_content">
-                        <div class="image" data-js-component="lightBox_new">
-                            <?php if (empty($project['images'])) { ?>
-                                <div class="image_inner"></div>
-                            <?php } else { ?>
-                                <div class="image_inner">
-                                    <a id="project-id-<?= $key ?>" data-js-component="lightBoxTrigger" class="img"
-                                       data-trigger="<?= $project['title']; ?>">
-                                        <img src="<?= $project['hero'] ?>">
-                                    </a>
-                                </div>
-
-                                <?php foreach ($project['images'] as $image) { ?>
+        <div class="pageInner">
+            <header class="moduleHeader">
+                <h2>In Progress</h2>
+            </header>
+            <div class="blockCollection">
+                <?php foreach ($projects as $key => $project) { ?>
+                    <div class="projectBlock">
+                        <div class="projectBlock_content">
+                            <div class="image" data-js-component="lightBox_new">
+                                <?php if (empty($project['images'])) { ?>
+                                    <div class="image_inner"></div>
+                                <?php } else { ?>
                                     <div class="image_inner">
-                                        <a href="<?= $image['image'] ?>" class="img"
-                                           data-lightbox="<?= $project['title']; ?>">
-                                            <img src="<?= $image['image'] ?>">
+                                        <a id="project-id-<?= $key ?>" data-js-component="lightBoxTrigger" class="img"
+                                           data-trigger="<?= $project['title']; ?>">
+                                            <img src="<?= $project['hero'] ?>">
                                         </a>
                                     </div>
+
+                                    <?php foreach ($project['images'] as $image) { ?>
+                                        <div class="image_inner">
+                                            <a href="<?= $image['image'] ?>" class="img"
+                                               data-lightbox="<?= $project['title']; ?>">
+                                                <img src="<?= $image['image'] ?>">
+                                            </a>
+                                        </div>
+                                    <?php } ?>
                                 <?php } ?>
-                            <?php } ?>
-                        </div>
-                        <div class="projectBlock_info">
-                            <h3><?= $project['title']; ?></h3>
-                            <?= $project['description']; ?>
+                            </div>
+                            <div class="projectBlock_info">
+                                <h3><?= $project['title']; ?></h3>
+                                <?= $project['description']; ?>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php } ?>
+                <?php } ?>
+            </div>
         </div>
     </div>
-
 
     <?php
     /*
       Contacts
     */
     $contacts = get_field('contacts', 'option');
+    if(FALSE):
+    // removed but not deleted
     ?>
     <div id="contact" class="page_module page_module--cto">
         <div class="contentWrapper">
@@ -87,8 +90,8 @@ $projects = get_field('projects');
             </div>
         </div>
     </div>
-
     <?php
+    endif;
     /*
       Call to Action
     */

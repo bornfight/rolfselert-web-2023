@@ -1,69 +1,71 @@
 .page_module {
-  margin-bottom: 48px;
-  position: relative;
-  
-  &.page_module--alt {
-    background: $color-gray;
-    padding-top: 48px;
-    padding-bottom: 48px;
-    
-    
-    @include breakpoint(tablet-landscape) {
-      padding-top: 100px;
-      padding-bottom: 100px;
-      margin-top: 80px;
-      margin-bottom: 100px;
+    margin-bottom: 48px;
+    position: relative;
+
+    &.page_module--alt {
+        background: $color-gray;
+        padding-top: 48px;
+        padding-bottom: 48px;
+
+        @include breakpoint(tablet-landscape) {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            //margin-top: 80px;
+            margin-bottom: 100px;
+        }
+
+        @include breakpoint(desktop) {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            //margin-top: 80px;
+            margin-bottom: 100px;
+        }
     }
-    
-    @include breakpoint(desktop) {
-      padding-top: 100px;
-      padding-bottom: 100px;
-      margin-top: 80px;
-      margin-bottom: 100px;
-    }
-  }
 }
 
 .page_module--rule:after {
-  display: block;
-  position: relative;
-  content: " ";
-  background: $color-gray;
-  height: 4px;
-  max-width: 830px;
-  margin: 14px auto 0 auto;
+    display: block;
+    position: relative;
+    content: " ";
+    background: $color-gray;
+    height: 4px;
+    max-width: 830px;
+    margin: 14px auto 0 auto;
 }
 
 @include breakpoint(tablet-landscape) {
-  .page_module {
-    margin-bottom: 56px;
-  }
-  .page_module--rule {
-    margin-bottom: 74px;
-  }
-  .page_module--rule:after {
-    margin-top: 74px;
-  }
+    .page_module {
+        margin-bottom: 56px;
+    }
+    .page_module--rule {
+        margin-bottom: 74px;
+    }
+    .page_module--rule:after {
+        margin-top: 74px;
+    }
 }
+
 .moduleHeader {
-  text-align: center;
-  padding-bottom: 16px;
-  .page_module:nth-of-type(1n) & {
-    padding-top: 32px;
-  }
-  @include breakpoint(desktop) {
-    padding-top: 58px;
-    padding-bottom: 28px;
+    text-align: center;
+    padding-bottom: 16px;
+
     .page_module:nth-of-type(1n) & {
-      padding-top: 58px;
+        padding-top: 32px;
     }
-    .page_module--rule + .page_module & {
-      margin-top: -38px;
+
+    @include breakpoint(desktop) {
+        padding-top: 73px;
+        padding-bottom: 73px;
+        .page_module:nth-of-type(1n) & {
+            padding-top: 73px;
+        }
+        .page_module--rule + .page_module & {
+            margin-top: -38px;
+        }
     }
-  }
 }
 
 
-.page_module--partners{
-  margin-bottom: 0 !important;
+.page_module--partners {
+    margin-bottom: 0 !important;
 }

@@ -14,11 +14,13 @@ Global Nav Toggle
     @include transition(.5s ease-in-out);
 
     @include breakpoint(tablet-landscape) {
-        margin-top: 65px;
+        margin-top: 37px;
+        margin-bottom: 38px;
     }
 
     .stickyHeader & {
-        margin-top: 36px;
+        margin-top: 37px;
+        margin-bottom: 38px;
     }
 }
 
@@ -43,7 +45,8 @@ Global Nav Toggle
         background-color: #ffffff;
     }
 
-    .is_visible & {
+    .is_visible &,
+    .globalHeader--dark & {
         background-color: #4A4A4A;
     }
 

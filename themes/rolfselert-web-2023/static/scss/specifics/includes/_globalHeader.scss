@@ -7,7 +7,7 @@ Global Header
     color: $color-default-white;
     top: 0;
     width: 100%;
-    padding-top: 8px;
+    //padding-top: 8px;
     background: white;
     position: fixed;
     height: 70px;
@@ -90,7 +90,7 @@ Global Header
             display: none;
         }
         &:before {
-            display: block
+            //display: block;
         }
 
         ._nav_open & {
@@ -103,6 +103,7 @@ Global Header
 .logo {
     display: block;
     margin-top: 12px;
+    margin-bottom: 11px;
     width: 180px;
     float: left;
     position: relative;
@@ -134,7 +135,9 @@ Global Header
         top: 0;
         width: 250px;
         display: block;
-        margin-top: 38px;
+        margin-top: 12px;
+        margin-bottom: 11px;
+
         g {
             fill: white;
         }

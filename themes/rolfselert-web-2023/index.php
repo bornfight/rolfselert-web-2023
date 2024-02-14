@@ -244,6 +244,8 @@ if ($use_work_in_progress_page) {
       Contacts
     */
     $contacts = get_field('contacts', 'option');
+    if(FALSE):
+    // removed but not deleted
     ?>
     <div id="contact" class="page_module page_module--cto">
         <div class="contentWrapper">
@@ -281,8 +283,8 @@ if ($use_work_in_progress_page) {
             </div>
         </div>
     </div>
-
     <?php
+    endif;
     /*
       Call to Action
     */

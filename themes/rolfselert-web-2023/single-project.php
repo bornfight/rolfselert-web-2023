@@ -79,11 +79,13 @@
         </div>
     </div>
 
-    <!-- <header class="pageHeader">
+    <?php if(FALSE):?>
+     <header class="pageHeader">
       <div class="contentWrapper">
       </div>
-    </header> -->
+    </header>
     <?php
+    endif;
     /*
       Page Modules
     */
@@ -109,13 +111,13 @@
     endforeach;
     ?>
 
-
-
     <?php
     /*
       Contacts
     */
     $contacts = get_field('contacts', 'option');
+    if(FALSE):
+    // removed but not deleted
     ?>
     <div id="contact" class="page_module page_module--cto">
         <div class="contentWrapper">
@@ -153,8 +155,8 @@
             </div>
         </div>
     </div>
-
     <?php
+    endif;
     /*
       Call to Action
     */
