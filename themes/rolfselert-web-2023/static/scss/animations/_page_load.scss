@@ -30,30 +30,30 @@ body._hop_up {
     .featured_work_item {
       &:nth-of-type(1n),
       &:nth-of-type(2n) {
-         @include animation(hop-up 1s forwards);
+         @include animation(hop-up 0.6s forwards);
       }
       &:nth-of-type(2n+1) {
         animation-delay: 0s;
       }
       &:nth-of-type(2n+2) {
-        animation-delay: 0.2s;
+        animation-delay: 0.1s;
       }
     }
   }
   @include breakpoint (desktop) {
     .featured_work_item {
       &:nth-of-type(3n) {
-        @include animation(hop-up 1s forwards);
+        @include animation(hop-up 0.6s forwards);
       }
       &:nth-of-type(3n+1) {
         animation-delay: 0s;
       }
       &:nth-of-type(3n+2) {
-        animation-delay: 0.2s;
+        animation-delay: 0.1s;
       }
       &:nth-of-type(3n+3) {
         margin-right: 0;
-        animation-delay: 0.4s;
+        animation-delay: 0.2s;
       }
     }
   }
@@ -64,10 +64,10 @@ body._drop_down {
     .featured_work_item {
       &:nth-of-type(1n),
       &:nth-of-type(2n) {
-        @include animation(drop-down 1s backwards);
+        @include animation(drop-down 0.6s backwards);
       }
       &:nth-of-type(2n+1) {
-        animation-delay: 0.2s;
+        animation-delay: 0.1s;
       }
       &:nth-of-type(2n+2) {
         animation-delay: 0s;
@@ -78,13 +78,13 @@ body._drop_down {
     .featured_work_item {
 
       &:nth-of-type(3n) {
-        @include animation(drop-down 1s backwards);
+        @include animation(drop-down 0.6s backwards);
       }
       &:nth-of-type(3n+1) {
-        animation-delay: 0.4s;
+        animation-delay: 0.2s;
       }
       &:nth-of-type(3n+2) {
-        animation-delay: 0.2s;
+        animation-delay: 0.1s;
       }
       &:nth-of-type(3n+3) {
         animation-delay: 0s;
@@ -106,7 +106,7 @@ body._drop_down {
 
 @include keyframes (drop-down) {
   0% {
-     @include transform(translate3d(0, -200px, 0));
+     @include transform(translate3d(0, -300px, 0));
      border-color: transparent;
   }
   100% {
