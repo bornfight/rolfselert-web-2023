@@ -50,11 +50,31 @@ Contact
 }
 
 .contacts_item {
-
     text-align: center;
-
     margin-bottom: 32px;
 
+    &:first-of-type {
+
+        .contacts_icon {
+            width: 24px;
+            height: 24px;
+
+        }
+    }
+
+    &:nth-child(2) {
+        .contacts_icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    &:nth-child(3) {
+
+        .contacts_icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
 
     @include breakpoint(tablet-portrait) {
         &:first-of-type {
@@ -63,16 +83,16 @@ Contact
             }
 
             .contacts_icon {
-                width: 33px;
-                height: 33px;
+                width: 34px;
+                height: 34px;
 
             }
         }
 
         &:nth-child(2) {
             .contacts_icon {
-                width: 30px;
-                height: 40px;
+                width: 34px;
+                height: 34px;
             }
         }
         &:nth-child(3) {
@@ -81,12 +101,11 @@ Contact
             }
 
             .contacts_icon {
-                width: 32px;
-                height: 26px;
+                width: 34px;
+                height: 34px;
             }
         }
     }
-
 
     a {
         color: $color-gray-text;

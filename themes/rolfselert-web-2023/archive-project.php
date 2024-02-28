@@ -100,7 +100,6 @@ $next = ($cur + 1) > $max ? false : intval($cur + 1);
         </div>
     </div>
     <?php
-    endif;
     /*
       Call to Action
     */
@@ -111,6 +110,9 @@ $next = ($cur + 1) > $max ? false : intval($cur + 1);
             <?= $cta; ?>
         </div>
     </div>
+    <?php
+    endif;
+    ?>
 
 </div>
 <?php get_footer(); ?>

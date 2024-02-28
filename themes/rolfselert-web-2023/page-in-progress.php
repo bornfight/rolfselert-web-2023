@@ -91,7 +91,6 @@ $projects = get_field('projects');
         </div>
     </div>
     <?php
-    endif;
     /*
       Call to Action
     */
@@ -102,6 +101,9 @@ $projects = get_field('projects');
             <?= $cta; ?>
         </div>
     </div>
+    <?php
+    endif;
+    ?>
 </div>
 <?php get_footer(); ?>
 

@@ -122,6 +122,10 @@ Global Nav
 
     .iconContain {
         max-width: 24px;
+
+        @include breakpoint(tablet-portrait) {
+            max-width: 34px;
+        }
     }
 
     .contacts_item_text {
